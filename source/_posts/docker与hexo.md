@@ -29,7 +29,7 @@ tags:
 docker pull node
 ```
 
-* 用此进行运行一个容器
+* 用此镜像运行一个容器
 
 ```
 docker run -i -t hexo-node /bin/bash
@@ -51,7 +51,7 @@ docker run -i -t hexo-node /bin/bash
     mkdir blog
 ```
 
-* 拉去最新博客数据
+* 拉取最新博客数据
 
 ```
     git config --global user.name "lissettecarlr"
@@ -108,7 +108,7 @@ docker stop 容器ID
 ```
 
 ## 3.2 使用Dockerfile构建
-* 首先拉去nodejs
+* 首先拉取nodejs
 ```
 docker pull node
 ```
