@@ -37,9 +37,48 @@ ${projectRoot}/source/img/${currentFileNameWithoutExt}
 以上配置是将hexo博客根目录作为了打开vscode工程的位置！
 
 效果如下图
-![](/source/img/vscode编辑MD图片粘贴插件/vscode编辑MD图片粘贴插件.png)
+![](vscode编辑MD图片粘贴插件/p_1.png)
 可见粘贴的图片是在img中新建了文件夹，名称就是文本的名称，然后图片也是文本的名称。
-![](/source/img/vscode编辑MD图片粘贴插件/vscode编辑MD图片粘贴插件2.png)
+![](vscode编辑MD图片粘贴插件/p_2.png)
+
+补充：hexo这样配置图片，在本地MD里面显示是没啥问题，但是部署后网页是显示不了的。网上查了下，貌似只能通过如下方式。当然如果你不是用hexo博客，那以下内容请无视。
+* 首先打开config.yml中自动建文件夹的配置
+```
+post_asset_folder: true
+```
+然后此时新建文章时，他就会在同目录下同时新建一个文件夹
+```
+cd ./source/_posts
+hexo new 测试
+```
+
+* 然后是安装一个插件
+```
+npm install https://github.com/CodeFalling/hexo-asset-image --save
+```
+
+* 配置paste image
+
+Paste Image: Default Name 填写
+```
+p_
+```
+Paste Image: Base Path 填写
+```
+${projectRoot}/source/_posts
+```
+Paste Image: Path 填写
+```
+${currentFileNameWithoutExt}
+```
+Paste Image: Prefix 填空
+
+* 之后图片格式就变为了，如此以来，才能在部署后被显示
+```
+![](vscode编辑MD图片粘贴插件/p_1.png)
+```
+
+
 # 3.paste image 中文说明
 
 ### 3.1用法

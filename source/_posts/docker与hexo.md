@@ -15,7 +15,7 @@ tags:
 * 使用docker让hexo在群晖里面跑起来，达到在局域网内使用，定时更新。
 -----------
 这里插一句，其实群晖搭建网站有个更加简单的方式，就是直接用Web Station套件。然后定时拉去github仓库里面最新的部署文件。几分钟完美达到目的。。。。所以本文主要还是学习用用docker啦- -|，其实一开始不是这么想的，蠢哭了。
-![](/source/img/docker与hexo/docker与hexo_1.png)
+![](docker与hexo/p_1.png)
 
 -----------
 
