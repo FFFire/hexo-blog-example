@@ -3,14 +3,15 @@ title: docker与hexo
 tags:
     - docker
     - hexo
+reward: true
 ---
 
-# 1.前言
+# 1. 前言
 主要是想将hexo弄到群晖NAS中去，但是又不想在原本系统中操作，发现里面有docker的应用，就顺便学习学习，捣鼓一下咯。几年前就在同学那里听说了docker，但是一直没机会接触。
 
 <!-- more -->
 
-# 2.目的
+# 2. 目的
 * 学习docker
 * 使用docker让hexo在群晖里面跑起来，达到在局域网内使用，定时更新。
 -----------
@@ -20,7 +21,7 @@ tags:
 -----------
 
 
-# 3.实现
+# 3. 实现
 ## 3.1 手动做一个hexo的镜像
 
 * 拉一个nodejs
@@ -158,7 +159,7 @@ docker bulid -t hexo_img .
 
 
 
-# 4.其他
+# 4. 其他
 
 ## 4.1 Dockerfile
 
