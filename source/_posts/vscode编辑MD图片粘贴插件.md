@@ -1,8 +1,7 @@
 ---
 title: VSCODE上写MD时的图片粘贴插件
 tags: 
-    - 文本编辑
-    - 插件
+    - vscode
 ---
 
 # 1. 前言

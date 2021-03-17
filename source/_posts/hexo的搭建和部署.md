@@ -2,7 +2,7 @@
 title: hexo的搭建和部署
 date: 2021-03-15 17:09:14
 tags:
-    -hexo
+    - hexo
 reward: true
 ---
 
@@ -53,11 +53,12 @@ git config --global user.email email@gmail.com
 ```
 
 * 与github使用ssh通信（可选）
-主要是我在github上拉去推送的时候经常超时，不得不才有此方式。
+主要是我在github上拉取推送的时候经常超时，不得不才有此方式。
 ```
 ssh-keygen -t rsa -C "youremail@example.com"
 ```
-然后让输入的地方全部回车，之后会在C:\Users\用户名\.ssh文件夹生成
+然后让输入的地方全部回车，之后会在C:\Users\用户名\.ssh文件夹生成。
+ubuntu被保存在/home/ubuntu/.ssh/
 ![](hexo的搭建和部署/p_1.png)
 复制id_rsa.pub中所以文本，打开GitHub设置，找到SSH and GPG keys选项，子页面点开New SSH key，将复制的内容粘贴进去，点击Add SSH key成功添加
 ![](hexo的搭建和部署/p_2.png)
@@ -311,7 +312,7 @@ git clone https://github.com/lissettecarlr/lissettecarlr.github.io.git
 ```
 sudo vim default
 # root /var/www/html;
-root /home/ubuntu/lissettecarlr.github.io/index.html;
+root /home/ubuntu/lissettecarlr.github.io/;
 ```
 
 * 重启nginx
