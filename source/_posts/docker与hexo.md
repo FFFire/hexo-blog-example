@@ -4,8 +4,6 @@ date: 2021-03-15 10:00:00
 tags:
     - docker
     - hexo
-reward: true
-comments: true
 ---
 
 # 1. 前言

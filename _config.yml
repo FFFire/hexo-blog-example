@@ -135,8 +135,23 @@ jsonContent:
     categories: false
     tags: true
 
-
-
-
+# Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-unitychan # 模型：https://huaji8.top/post/live2d-plugin-2.0/
+  display:
+    position: left
+    width: 300
+    height: 500
+  mobile:
+    show: true
 
 

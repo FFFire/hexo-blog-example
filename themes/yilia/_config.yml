@@ -107,15 +107,15 @@ slider:
 
 # 如不需要，将该项置为false
 # 比如
-#smart_menu:
-#  friends: false
+# smart_menu:
+  # friends: false
 smart_menu:
   innerArchive: '所有文章'
-  friends: false
   aboutme: '关于我'
-
+  friends: 友情链接
 friends:
-  友情链接1: http://localhost:4000/
+  Neucrack: https://neucrack.com
+  allen: http://alish.wang
 
 #文章结束
 essayending_type: 2 #0关闭文章结束提示 2全开 1需要在文章开头加上 essayending: true

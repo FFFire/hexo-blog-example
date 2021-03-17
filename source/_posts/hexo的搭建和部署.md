@@ -3,7 +3,6 @@ title: hexo的搭建和部署
 date: 2021-03-15 17:09:14
 tags:
     - hexo
-comments: true
 ---
 
 # 1. 前言
@@ -209,6 +208,36 @@ external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
   exclude: ''
+```
+
+* 看板娘
+```
+npm install --save hexo-helper-live2d
+```
+选个模型https://huaji8.top/post/live2d-plugin-2.0/
+```
+npm install live2d-widget-model-模型名
+```
+配置博客的config.yml
+```
+# Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-hijiki # 模型：https://huaji8.top/post/live2d-plugin-2.0/
+  display:
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: true
 ```
 
 # 3. 部署博客
