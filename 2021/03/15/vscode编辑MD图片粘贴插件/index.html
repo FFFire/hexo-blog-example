@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_1.png">
 <meta property="og:image" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_2.png">
 <meta property="article:published_time" content="2021-03-15T17:09:14.000Z">
-<meta property="article:modified_time" content="2021-03-17T08:53:33.512Z">
+<meta property="article:modified_time" content="2021-03-17T09:34:13.078Z">
 <meta property="article:author" content="Lissettecarlr">
 <meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
@@ -90,9 +90,11 @@ var _hmt = _hmt || [];
     			
             
     			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
 		</nav>
@@ -501,6 +503,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -512,13 +516,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
     </ul>
@@ -601,6 +607,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://neucrack.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Neucrack</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://alish.wang" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>allen</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
