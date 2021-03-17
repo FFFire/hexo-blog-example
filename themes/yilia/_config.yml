@@ -3,9 +3,9 @@
 author: Lissettecarlr
 subtitle: 死宅一只
 
-# menu:
-#   主页: /
-#   相册: /photos
+menu:
+  主页: /
+  杂谈: /tags/杂谈/
 
 # SubNav
 subnav:
@@ -64,7 +64,7 @@ google_analytics: false
 #网页图标
 favicon: /img/kala.jpg
 #你的头像
-avatar: /img/kala.jpg
+avatar:  /img/kala.jpg
 
 #是否开启分享
 share_jia: true
@@ -116,10 +116,8 @@ smart_menu:
 
 friends:
   友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
 
-aboutme: lissettecarlr，<br>主要方向是嵌入式软件，偶尔玩点其他<br><br>重度ACG爱好者<br/>摄影新手<br/><br/>一只有想法的死宅<br>0w0。
+#文章结束
+essayending_type: 2 #0关闭文章结束提示 2全开 1需要在文章开头加上 essayending: true
+
+aboutme: 名称来源于游戏角色，莉塞特<br>不要深究<br><br>毕业于重理工<br>主要工作方向是嵌入式软件，偶尔玩点其他<br><br>重度ACG爱好者<br>摄影新手<br><br>一只有想法的死宅<br>0w0。<br><br>名称就是微信，也是163邮箱<br>添加请注明目的
