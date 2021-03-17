@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 文本编辑 | blog</title>
+  <title>vscode下的C编译 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://example.com/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91/index.html">
+  <meta name="description" content="1. 前言最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode下的C编译">
+<meta property="og:url" content="http://example.com/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
+<meta property="og:description" content="1. 前言最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/p_1.png">
+<meta property="og:image" content="http://example.com/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/p_2.png">
+<meta property="article:published_time" content="2021-03-17T12:33:32.000Z">
+<meta property="article:modified_time" content="2021-03-17T05:05:55.111Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -153,64 +158,204 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vscode下的C编译" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2021-03-15T11:29:31.175Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/">VSCODE上写MD时的图片粘贴插件</a>
+    <h1 class="article-title" itemprop="name">
+      vscode下的C编译
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/" class="archive-article-date">
+  	<time datetime="2021-03-17T12:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。</p>
+<span id="more"></span>
+
+<h1 id="2-安装MinGW-Minimalist-GNU-for-Windows"><a href="#2-安装MinGW-Minimalist-GNU-for-Windows" class="headerlink" title="2. 安装MinGW(Minimalist GNU for Windows)"></a>2. 安装MinGW(Minimalist GNU for Windows)</h1><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/">下载地址</a><br>exe安装包直接点，然后途中的安装选择如下：<br><img src="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/p_1.png"></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Version</td>
+<td>制定版本号，没啥额外条件就选最新的</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>64位系统选择x86_64，32位系统选择i686</td>
+</tr>
+<tr>
+<td>Threads</td>
+<td>设置线程标准</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>设置异常处理系统</td>
+</tr>
+<tr>
+<td>Build revision</td>
+<td>没得选，默认</td>
+</tr>
+<tr>
+<td>安装完成后找到文件放置的目录，然后会看到一个mingw-w64.bat脚本，直接运行弹出的命令行窗体中便可以直接使用gcc进行测试安装情况。</td>
+<td></td>
+</tr>
+<tr>
+<td>要想全局使用肯定还是得配置环境变量，怎么配置其实就是对上面脚本右键编辑可以看到：</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">set</span> PATH=C:\Program Files\mingw-w<span class="number">64</span>\x<span class="number">86</span>_<span class="number">64</span>-<span class="number">8</span>.<span class="number">1</span>.<span class="number">0</span>-win<span class="number">32</span>-seh-rt_v<span class="number">6</span>-rev<span class="number">0</span>\mingw<span class="number">64</span>\bin;%PATH%</span><br></pre></td></tr></table></figure>
+<p>直接复制地址对PATH进行添加即可，完成后打开cmd，使用gcc -v测试一下。</p>
+<h1 id="3-vscode插件"><a href="#3-vscode插件" class="headerlink" title="3. vscode插件"></a>3. vscode插件</h1><ul>
+<li>C/C++</li>
+<li>Code Runner<br>安装完成后重启VSCODE<br>创建个文件测试一下，可以点击右上角的三角或者直接文本中右键run code<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/p_2.png"></li>
+</ul>
+<h1 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h1><p>code run默认是编译当前文件，所以当需要编译多个文件的时候可以修改配置。<br>在文件-&gt;首选项-&gt;设置中搜索run code，找到 Executor Map 在settings.json中找到C编译，将gcc $filename修改未gcc *.c后，则会对当前文件夹进行编译。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文本编辑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/03/17/docker%E4%B8%8Ehexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker与hexo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85MinGW-Minimalist-GNU-for-Windows"><span class="toc-number">2.</span> <span class="toc-text">2. 安装MinGW(Minimalist GNU for Windows)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-vscode%E6%8F%92%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">3. vscode插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%85%B6%E4%BB%96"><span class="toc-number">4.</span> <span class="toc-text">4. 其他</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -236,9 +381,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -311,15 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文本编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
