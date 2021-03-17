@@ -1,6 +1,7 @@
 ---
 title: GCC编译流程
 date: 2021-03-17 13:16:36
+comments: true
 tags:
     - C
 ---

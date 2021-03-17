@@ -39,7 +39,7 @@ mathjax: false
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
-reward_type: 1
+reward_type: 2
 reward_wording: '哼！就算讨好我也没有什么好处哦[狗头]'
 # alipay: /img/alipay.jpg
 weixin: /img/weixin.jpg
@@ -82,8 +82,8 @@ mobile:
 #wangyiyun: '2dba06fbf8d24c13915ea6c6aa7183b1'
 
 #3、畅言
-# changyan_appid: 'cysX3aGWt'
-# changyan_conf: 'prod_1dcda447175aada96edcdb7e412338fa'
+changyan_appid: 'cyvmivPCV'
+changyan_conf: '860a8548b5fc690e10bafd7a12f4539e'
 
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
 disqus: false

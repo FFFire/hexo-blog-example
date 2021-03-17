@@ -5,6 +5,7 @@ tags:
     - docker
     - hexo
 reward: true
+comments: true
 ---
 
 # 1. 前言

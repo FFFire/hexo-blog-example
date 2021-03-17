@@ -3,7 +3,7 @@ title: hexo的搭建和部署
 date: 2021-03-15 17:09:14
 tags:
     - hexo
-reward: true
+comments: true
 ---
 
 # 1. 前言
