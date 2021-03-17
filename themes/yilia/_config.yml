@@ -18,7 +18,7 @@ subnav:
   #segmentfault: "#"
   bilibili: "https://space.bilibili.com/840543"
   #acfun: "#"
-  mail: "lissettecarlr@163.com"
+  mail: "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=lissettecarlr@163.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -82,8 +82,8 @@ mobile:
 #wangyiyun: '2dba06fbf8d24c13915ea6c6aa7183b1'
 
 #3、畅言
-changyan_appid: 'cyvmivPCV'
-changyan_conf: '860a8548b5fc690e10bafd7a12f4539e'
+# changyan_appid: 'cyvmivPCV'
+# changyan_conf: '860a8548b5fc690e10bafd7a12f4539e'
 
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
 disqus: false
