@@ -9,6 +9,7 @@ tags:
 # 1. 前言
 
 本文主要记录使用过的排序算法，之后有新的接触再更新。[我自己的工具函数仓库](https://github.com/lissettecarlr/Embedded-tool-function)
+
 |名称|最坏时间复杂度|最好时间复杂度|空间复杂度|
 |---|---|---|---|
 |冒泡排序|O(n^2)|O(n)|O(1)|
