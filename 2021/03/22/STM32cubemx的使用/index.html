@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>blog</title>
+  <title>STM32cubemx的使用 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="1. 前言本文主要是迁移之前的文章，然后做补充和完善。STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见官网即可。此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。还">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32cubemx的使用">
+<meta property="og:url" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
+<meta property="og:description" content="1. 前言本文主要是迁移之前的文章，然后做补充和完善。STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见官网即可。此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。还">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_2.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_3.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_4.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_5.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_6.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_7.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_8.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_11.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_12.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_9.png">
+<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_10.png">
+<meta property="article:published_time" content="2021-03-22T16:00:50.000Z">
+<meta property="article:modified_time" content="2021-03-23T04:01:22.715Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="STM32">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -167,96 +183,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-2021年1月新番简评" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-STM32cubemx的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/">2021年1月新番简评</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/" class="archive-article-date">
-  	<time datetime="2021-03-23T00:15:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>之后此类文章将在这里，也就是自己的博客更新，之前简评在<a target="_blank" rel="noopener" href="https://www.jianshu.com/c/81e01366c389">简书</a>上。<br>主要是对当季度看过的新番和在此时段补的老番进行简略评论和推荐。纯主观看法，不接受异议。<br>根据看完后编写的时间排序</p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">新番简评</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-STM32cubemx的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/">STM32cubemx的使用</a>
+    <h1 class="article-title" itemprop="name">
+      STM32cubemx的使用
     </h1>
   
 
@@ -270,11 +204,94 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要是迁移之前的文章，然后做补充和完善。<br>STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见<a target="_blank" rel="noopener" href="https://www.st.com/zh/development-tools/stm32cubemx.html">官网</a>即可。<br>此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。<br>还有个功能就是翻阅芯片的信息和文档，非常方便。</p>
-        
+<span id="more"></span>
+<h1 id="2-安装相关软件"><a href="#2-安装相关软件" class="headerlink" title="2. 安装相关软件"></a>2. 安装相关软件</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.st.com/zh/development-tools/stm32cubemx.html">STM32cubemx</a>：其中有三个版本，linux，mac和win，根据自己系统下载即可。官网下载需要登录，未登录点下载时让你填写邮箱别乱写，他要发验证过去，不会让你直接下载的 - -|</p>
+</li>
+<li><p>安装java，直接去<a target="_blank" rel="noopener" href="https://www.java.com/zh-CN/">官网</a>下载，安装的时候勾选配置环境变量即可。</p>
+</li>
+<li><p>我用的window，STM32cubemx下载文件里面就一个exe，直接安装，安装过程中没啥要注意的。</p>
+</li>
+<li><p>打开STM32CubeMX，它会自动更新，建议架”梯子”，不然很慢，和KEIL那个更新一样。在菜单栏help-&gt;Updater Settings可以进行配置.<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png"></p>
+</li>
+<li><p>在help-&gt;Embedded software packages Manager中下载对应芯片的软件包<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_2.png"></p>
+</li>
+</ul>
+<h1 id="3-创建工程"><a href="#3-创建工程" class="headerlink" title="3. 创建工程"></a>3. 创建工程</h1><h2 id="3-1-创建"><a href="#3-1-创建" class="headerlink" title="3.1 创建"></a>3.1 创建</h2><ul>
+<li>菜单栏file-&gt;new project<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_3.png"><br>这里能方面的查看芯片的信息和相关文档！</li>
+</ul>
+<h2 id="3-2-时钟配置"><a href="#3-2-时钟配置" class="headerlink" title="3.2 时钟配置"></a>3.2 时钟配置</h2><p>这里根据自己硬件来设置，我使用的是8M外部无源晶振。<br>打开左侧System Core标签下的RCC来配置高速\低速时钟的模式</p>
+<ul>
+<li>Crystal/Ceramic Resonator 外部晶体/陶瓷谐振器模式(无源晶振选这个)</li>
+<li>BYPASS clock source 外部时钟源旁路模式(有源晶振选这个)<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_4.png"></li>
+</ul>
+<p>然后点击菜单栏的Clock Configuration配置时钟树。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_5.png"></p>
+<h2 id="3-3-调试配置"><a href="#3-3-调试配置" class="headerlink" title="3.3 调试配置"></a>3.3 调试配置</h2><p>不进行配置是无法使用调试功能的，也可以选择SW等，会初始化对应的引脚。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_6.png"></p>
+<h2 id="3-4-GPIO配置"><a href="#3-4-GPIO配置" class="headerlink" title="3.4 GPIO配置"></a>3.4 GPIO配置</h2><p>在界面右侧的芯片引脚图中可以直接点击来配置所需要的引脚模式<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_7.png"><br>然后在左侧菜单栏选择GPIO可以进行详细设置<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_8.png"></p>
+<h2 id="3-5-USART配置"><a href="#3-5-USART配置" class="headerlink" title="3.5 USART配置"></a>3.5 USART配置</h2><p>在界面左侧选择Connectivity-&gt;USART,然后设置模式为异步通信（Asynchronous）,下面是串口配置，可以默认。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_11.png"><br>然后点击NVIC Settings勾选中断<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_12.png"></p>
+<h1 id="4-生成代码"><a href="#4-生成代码" class="headerlink" title="4. 生成代码"></a>4. 生成代码</h1><p>上侧菜单栏选择Project Manager，然后对工程进行配置<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_9.png"><br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_10.png"><br>最后点击右上角的GENERATE CODE，至此便完成了工程的建立</p>
+<h1 id="5-keil工程"><a href="#5-keil工程" class="headerlink" title="5. keil工程"></a>5. keil工程</h1><h2 id="5-1-环境"><a href="#5-1-环境" class="headerlink" title="5.1 环境"></a>5.1 环境</h2><ul>
+<li>下载jlink驱动：<a target="_blank" rel="noopener" href="https://www.segger.com/downloads/jlink/">官网</a>，点开J-Link Software and Documentation Pack标签，按需下载。</li>
+<li>下载KEIL：<a target="_blank" rel="noopener" href="https://www2.keil.com/mdk5/">官网</a></li>
+</ul>
+<h2 id="5-1-GPIO例程"><a href="#5-1-GPIO例程" class="headerlink" title="5.1 GPIO例程"></a>5.1 GPIO例程</h2><p>例程根据上列3.4配置生成</p>
+<ul>
+<li>图形化的引脚配置被生成在了gpio.c文件中</li>
+<li>stm32f1xx_hal_msp.c包含使用的库函数初始化了反初始化</li>
+<li>stm32f1xx_it.c包含中断函数接口</li>
+<li>system_stm32f1xx.c里面主要是配置了时钟</li>
+<li>main.c中全部配置工作都已经完成，只需要在main函数中编写应用代码即可，例如不断切换引脚电平<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">1</span> */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">1</span> */</span><br><span class="line">  /* MCU Configuration--------------------------------------------------------*/</span><br><span class="line">  /* Reset of all peripherals, Initializes the Flash interface <span class="keyword">and</span> the Systick. */</span><br><span class="line">  HAL_Init();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN Init */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END Init */</span><br><span class="line">  /* Configure the system clock */</span><br><span class="line">  SystemClock_Config();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN SysInit */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END SysInit */</span><br><span class="line">  /* Initialize all configured peripherals */</span><br><span class="line">  MX_GPIO_Init();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">2</span> */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">2</span> */</span><br><span class="line">  /* <span class="literal">Inf</span>inite loop */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN WHILE */</span><br><span class="line">  while (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    /* <span class="keyword">USER</span> <span class="title">CODE</span> END WHILE */</span><br><span class="line">    HAL_GPIO_WritePin(GPIOD, GPIO_PIN_6, GPIO_PIN_RESET);</span><br><span class="line">    HAL_Delay(<span class="number">1000</span>);</span><br><span class="line">    HAL_GPIO_WritePin(GPIOD, GPIO_PIN_6, GPIO_PIN_SET);</span><br><span class="line">    HAL_Delay(<span class="number">1000</span>);</span><br><span class="line">    /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">3</span> */</span><br><span class="line">  &#125;</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">3</span> */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-2-USART例程"><a href="#5-2-USART例程" class="headerlink" title="5.2 USART例程"></a>5.2 USART例程</h2><ul>
+<li>添加printf映射<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputc</span><span class="params">(<span class="keyword">int</span> ch, FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1, (<span class="keyword">uint8_t</span> *)&amp;ch, <span class="number">1</span>, <span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetc</span><span class="params">(FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">uint8_t</span> ch = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1, &amp;ch, <span class="number">1</span>, <span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
 
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+          
             
       
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>哼！就算讨好我也没有什么好处哦[狗头]<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -298,16 +315,84 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2021年1月新番简评
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序（C）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -322,509 +407,30 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-排序（C）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/">排序（C）</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-19T14:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要记录使用过的排序算法，之后有新的接触再更新。<a target="_blank" rel="noopener" href="https://github.com/lissettecarlr/Embedded-tool-function">我自己的工具函数仓库</a></p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>最坏时间复杂度</th>
-<th>最好时间复杂度</th>
-<th>空间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>冒泡排序</td>
-<td>O(n^2)</td>
-<td>O(n)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>快速排序</td>
-<td>O(n^2)</td>
-<td>O(nlogn)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>哈希计数排序</td>
-<td>O(n+k)</td>
-<td>O(n+k)</td>
-<td>O(k)</td>
-</tr>
-</tbody></table>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">2. 安装相关软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 创建工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BA"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 时钟配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 调试配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-GPIO%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 GPIO配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-USART%E9%85%8D%E7%BD%AE"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 USART配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">4. 生成代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-keil%E5%B7%A5%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">5. keil工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E7%8E%AF%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-GPIO%E4%BE%8B%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">5.1 GPIO例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-USART%E4%BE%8B%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">5.2 USART例程</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-GCC编译流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/">GCC编译流程</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2021-03-17T13:16:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要说明使用gcc编译一个hello world程序时的四个步骤，预处理（Prepressiong）、编译（Compilation）、汇编（Assembly）、链接（Linking）。<br><img src="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/p_3.png"></p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vscode下的C编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/">vscode下的C编译</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/" class="archive-article-date">
-  	<time datetime="2021-03-17T12:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。</p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/17/vscode%E4%B8%8B%E7%9A%84C%E7%BC%96%E8%AF%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo的搭建和部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/15/hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/">hexo的搭建和部署</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/15/hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2021-03-15T17:09:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要描述在win10和linux下搭建hexo，修改主题，然后去GitHub上或VPS上部署，也是刚接触，如有错误，望指正。</p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/15/hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vscode编辑MD图片粘贴插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/">VSCODE上写MD时的图片粘贴插件</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2021-03-15T17:09:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>由于转移到了hexo下，文章都是MD格式，所以图片问题是首要解决的，简书和印象笔记都是直接粘贴图片，使用习惯后回不到手动填写图片地址的方式了，于是去找了找vscode上有没有插件支持粘贴的，还真找到了，paste Image</p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker与hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/15/docker%E4%B8%8Ehexo/">docker与hexo</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/15/docker%E4%B8%8Ehexo/" class="archive-article-date">
-  	<time datetime="2021-03-15T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>主要是想将hexo弄到群晖NAS中去，但是又不想在原本系统中操作，发现里面有docker的应用，就顺便学习学习，捣鼓一下咯。几年前就在同学那里听说了docker，但是一直没机会接触。</p>
-        
-      
-
-            
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/15/docker%E4%B8%8Ehexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -850,8 +456,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
