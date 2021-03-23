@@ -163,7 +163,20 @@ style:
 改为
 <a href="http://hexo.io/" target="_blank">Hexo</a> 
 ```
+此处也可以修改为备案信息
+```
+<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">渝ICP备2021002648号-1</a> 
+```
 
+* 翻页设置
+修改文件themes\yilia\layout\\_partial\archive.ejs的8行、9行、37行和38行
+```
+prev_text: '上一页',
+next_text: '下一页;'
+```
+修改文件themes\yilia\layout\\_partial\script.ejs
+搜索&laquo; Prev，改为上一页
+搜索next &raquo，改为下一页
 ## 2.4 写文章
 
 * 创建一个新文章,被默认保存在blog\source\\_posts
