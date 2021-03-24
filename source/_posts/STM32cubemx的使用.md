@@ -115,7 +115,7 @@ int main(void)
 ```
 
 ## 5.2 USART例程
-* 添加printf映射
+### 5.2.1 添加printf映射
 ```
 #include <stdio.h>
 int fputc(int ch, FILE *f)
@@ -130,4 +130,43 @@ int fgetc(FILE *f)
   return ch;
 }
 ```
+### 5.2.2 发送
+串口发送实际上是将逐个字节扔到一个8位寄存器中去，然后以起始位+数据位+奇偶校验位+停止位组成一帧数据进行发送。
+* 发送函数，在规定时间进行发送，未能发送成功则返回HAL_TIMEOUT
+```
+HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+HAL_UART_Transmit(&huart1,txBuffer,10,0xffff);
+```
+* 串口中断发送，使能发送中断后，在中断中进行逐个数据的发送，发送完成后调用回调函数。
+```
+HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
+HAL_UART_Transmit_IT(&huart1,txBuffer,10);
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+	 if(huart == &huart1)
+	 {
+		   flag++;
+	 }
+}
+```
 
+
+### 5.2.3 接收
+* 阻塞接收，在规定时间内程序阻塞在此等待接收规定的数据个数
+```
+HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+HAL_UART_Receive(&huart1,rxBuffer,3,5000);
+```
+
+* 中断接收，在需要接收的位置启动HAL_UART_Receive_IT，数据接收完毕后将触发接收完成中断HAL_UART_RxCpltCallback
+```
+HAL_UART_Receive_IT(&huart1, rxBuffer, 1);
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	 if(huart == &huart1)
+	 {
+		  recvDataNumber++;
+		  HAL_UART_Receive_IT(huart, rxBuffer, 1);
+	 }
+}
+```
