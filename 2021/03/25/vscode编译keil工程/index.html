@@ -6,34 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>STM32cubemx的使用 | blog</title>
+  <title>vscode编译keil工程 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言本文主要是迁移之前的文章，然后做补充和完善。STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见官网即可。此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。还">
+  <meta name="description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。 2. 安装和配置 首先需要安装keil和vscode两款软件  打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件  安装后点击扩展设置，配置keil的地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STM32cubemx的使用">
-<meta property="og:url" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="vscode编译keil工程">
+<meta property="og:url" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="1. 前言本文主要是迁移之前的文章，然后做补充和完善。STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见官网即可。此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。还">
+<meta property="og:description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。 2. 安装和配置 首先需要安装keil和vscode两款软件  打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件  安装后点击扩展设置，配置keil的地址">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_2.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_3.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_4.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_5.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_6.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_7.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_8.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_11.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_12.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_9.png">
-<meta property="og:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_10.png">
-<meta property="article:published_time" content="2021-03-22T16:00:50.000Z">
-<meta property="article:modified_time" content="2021-03-25T05:32:02.700Z">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png">
+<meta property="article:published_time" content="2021-03-25T12:57:34.000Z">
+<meta property="article:modified_time" content="2021-03-25T05:32:02.708Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="STM32">
-<meta property="article:tag" content="工具">
+<meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png">
+<meta name="twitter:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -183,76 +172,37 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-STM32cubemx的使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vscode编译keil工程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      STM32cubemx的使用
+      vscode编译keil工程
     </h1>
   
 
         
-        <a href="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-03-22T16:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
+        <a href="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2021-03-25T12:57:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要是迁移之前的文章，然后做补充和完善。<br>STM32cubemx工具是一个图形化初始代码生成器，极大简化工程建立和配置等的时间消耗。详情直接见<a target="_blank" rel="noopener" href="https://www.st.com/zh/development-tools/stm32cubemx.html">官网</a>即可。<br>此工具我主要是用来测试三方模块是否正常工作，当主工程比较复杂，其中某个模块出现了BUG，那么首先就是检测模块的驱动和模块本身是否有问题，如果直接在主工程中未能找到，则就将其独立出来，用STM32cubemx来建立一个新工程，单独测试。<br>还有个功能就是翻阅芯片的信息和文档，非常方便。</p>
-<span id="more"></span>
-<h1 id="2-安装相关软件"><a href="#2-安装相关软件" class="headerlink" title="2. 安装相关软件"></a>2. 安装相关软件</h1><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.st.com/zh/development-tools/stm32cubemx.html">STM32cubemx</a>：其中有三个版本，linux，mac和win，根据自己系统下载即可。官网下载需要登录，未登录点下载时让你填写邮箱别乱写，他要发验证过去，不会让你直接下载的 - -|</p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。</p>
+<h1 id="2-安装和配置"><a href="#2-安装和配置" class="headerlink" title="2. 安装和配置"></a>2. 安装和配置</h1><ul>
+<li><p>首先需要安装keil和vscode两款软件</p>
 </li>
-<li><p>安装java，直接去<a target="_blank" rel="noopener" href="https://www.java.com/zh-CN/">官网</a>下载，安装的时候勾选配置环境变量即可。</p>
+<li><p>打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png"></p>
 </li>
-<li><p>我用的window，STM32cubemx下载文件里面就一个exe，直接安装，安装过程中没啥要注意的。</p>
-</li>
-<li><p>打开STM32CubeMX，它会自动更新，建议架”梯子”，不然很慢，和KEIL那个更新一样。在菜单栏help-&gt;Updater Settings可以进行配置.<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_1.png"></p>
-</li>
-<li><p>在help-&gt;Embedded software packages Manager中下载对应芯片的软件包<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_2.png"></p>
+<li><p>安装后点击扩展设置，配置keil的地址<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png"></p>
 </li>
 </ul>
-<h1 id="3-创建工程"><a href="#3-创建工程" class="headerlink" title="3. 创建工程"></a>3. 创建工程</h1><h2 id="3-1-创建"><a href="#3-1-创建" class="headerlink" title="3.1 创建"></a>3.1 创建</h2><ul>
-<li>菜单栏file-&gt;new project<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_3.png"><br>这里能方面的查看芯片的信息和相关文档！</li>
-</ul>
-<h2 id="3-2-时钟配置"><a href="#3-2-时钟配置" class="headerlink" title="3.2 时钟配置"></a>3.2 时钟配置</h2><p>这里根据自己硬件来设置，我使用的是8M外部无源晶振。<br>打开左侧System Core标签下的RCC来配置高速\低速时钟的模式</p>
-<ul>
-<li>Crystal/Ceramic Resonator 外部晶体/陶瓷谐振器模式(无源晶振选这个)</li>
-<li>BYPASS clock source 外部时钟源旁路模式(有源晶振选这个)<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_4.png"></li>
-</ul>
-<p>然后点击菜单栏的Clock Configuration配置时钟树。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_5.png"></p>
-<h2 id="3-3-调试配置"><a href="#3-3-调试配置" class="headerlink" title="3.3 调试配置"></a>3.3 调试配置</h2><p>不进行配置是无法使用调试功能的，也可以选择SW等，会初始化对应的引脚。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_6.png"></p>
-<h2 id="3-4-GPIO配置"><a href="#3-4-GPIO配置" class="headerlink" title="3.4 GPIO配置"></a>3.4 GPIO配置</h2><p>在界面右侧的芯片引脚图中可以直接点击来配置所需要的引脚模式<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_7.png"><br>然后在左侧菜单栏选择GPIO可以进行详细设置<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_8.png"></p>
-<h2 id="3-5-USART配置"><a href="#3-5-USART配置" class="headerlink" title="3.5 USART配置"></a>3.5 USART配置</h2><p>在界面左侧选择Connectivity-&gt;USART,然后设置模式为异步通信（Asynchronous）,下面是串口配置，可以默认。<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_11.png"><br>然后点击NVIC Settings勾选中断<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_12.png"></p>
-<h1 id="4-生成代码"><a href="#4-生成代码" class="headerlink" title="4. 生成代码"></a>4. 生成代码</h1><p>上侧菜单栏选择Project Manager，然后对工程进行配置<br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_9.png"><br><img src="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/p_10.png"><br>最后点击右上角的GENERATE CODE，至此便完成了工程的建立</p>
-<h1 id="5-keil工程"><a href="#5-keil工程" class="headerlink" title="5. keil工程"></a>5. keil工程</h1><h2 id="5-1-环境"><a href="#5-1-环境" class="headerlink" title="5.1 环境"></a>5.1 环境</h2><ul>
-<li>下载jlink驱动：<a target="_blank" rel="noopener" href="https://www.segger.com/downloads/jlink/">官网</a>，点开J-Link Software and Documentation Pack标签，按需下载。</li>
-<li>下载KEIL：<a target="_blank" rel="noopener" href="https://www2.keil.com/mdk5/">官网</a></li>
-</ul>
-<h2 id="5-1-GPIO例程"><a href="#5-1-GPIO例程" class="headerlink" title="5.1 GPIO例程"></a>5.1 GPIO例程</h2><p>例程根据上列3.4配置生成</p>
-<ul>
-<li>图形化的引脚配置被生成在了gpio.c文件中</li>
-<li>stm32f1xx_hal_msp.c包含使用的库函数初始化了反初始化</li>
-<li>stm32f1xx_it.c包含中断函数接口</li>
-<li>system_stm32f1xx.c里面主要是配置了时钟</li>
-<li>main.c中全部配置工作都已经完成，只需要在main函数中编写应用代码即可，例如不断切换引脚电平<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">1</span> */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">1</span> */</span><br><span class="line">  /* MCU Configuration--------------------------------------------------------*/</span><br><span class="line">  /* Reset of all peripherals, Initializes the Flash interface <span class="keyword">and</span> the Systick. */</span><br><span class="line">  HAL_Init();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN Init */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END Init */</span><br><span class="line">  /* Configure the system clock */</span><br><span class="line">  SystemClock_Config();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN SysInit */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END SysInit */</span><br><span class="line">  /* Initialize all configured peripherals */</span><br><span class="line">  MX_GPIO_Init();</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">2</span> */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">2</span> */</span><br><span class="line">  /* <span class="literal">Inf</span>inite loop */</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN WHILE */</span><br><span class="line">  while (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    /* <span class="keyword">USER</span> <span class="title">CODE</span> END WHILE */</span><br><span class="line">    HAL_GPIO_WritePin(GPIOD, GPIO_PIN_6, GPIO_PIN_RESET);</span><br><span class="line">    HAL_Delay(<span class="number">1000</span>);</span><br><span class="line">    HAL_GPIO_WritePin(GPIOD, GPIO_PIN_6, GPIO_PIN_SET);</span><br><span class="line">    HAL_Delay(<span class="number">1000</span>);</span><br><span class="line">    /* <span class="keyword">USER</span> <span class="title">CODE</span> BEGIN <span class="number">3</span> */</span><br><span class="line">  &#125;</span><br><span class="line">  /* <span class="keyword">USER</span> <span class="title">CODE</span> END <span class="number">3</span> */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="5-2-USART例程"><a href="#5-2-USART例程" class="headerlink" title="5.2 USART例程"></a>5.2 USART例程</h2><h3 id="5-2-1-添加printf映射"><a href="#5-2-1-添加printf映射" class="headerlink" title="5.2.1 添加printf映射"></a>5.2.1 添加printf映射</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputc</span><span class="params">(<span class="keyword">int</span> ch, FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1, (<span class="keyword">uint8_t</span> *)&amp;ch, <span class="number">1</span>, <span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetc</span><span class="params">(FILE *f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">uint8_t</span> ch = <span class="number">0</span>;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1, &amp;ch, <span class="number">1</span>, <span class="number">0xffff</span>);</span><br><span class="line">  <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-2-发送"><a href="#5-2-2-发送" class="headerlink" title="5.2.2 发送"></a>5.2.2 发送</h3><p>串口发送实际上是将逐个字节扔到一个8位寄存器中去，然后以起始位+数据位+奇偶校验位+停止位组成一帧数据进行发送。</p>
-<ul>
-<li>发送函数，在规定时间进行发送，未能发送成功则返回HAL_TIMEOUT<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="constructor">HAL_UART_Transmit(UART_HandleTypeDef <span class="operator">*</span><span class="params">huart</span>, <span class="params">uint8_t</span> <span class="operator">*</span><span class="params">pData</span>, <span class="params">uint16_t</span> Size, <span class="params">uint32_t</span> Timeout)</span></span><br><span class="line"><span class="constructor">HAL_UART_Transmit(&amp;<span class="params">huart1</span>,<span class="params">txBuffer</span>,10,0xffff)</span>;</span><br></pre></td></tr></table></figure></li>
-<li>串口中断发送，使能发送中断后，在中断中进行逐个数据的发送，发送完成后调用回调函数。<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HAL_StatusTypeDef <span class="constructor">HAL_UART_Transmit_IT(UART_HandleTypeDef <span class="operator">*</span><span class="params">huart</span>, <span class="params">uint8_t</span> <span class="operator">*</span><span class="params">pData</span>, <span class="params">uint16_t</span> Size)</span></span><br><span class="line"><span class="constructor">HAL_UART_Transmit_IT(&amp;<span class="params">huart1</span>,<span class="params">txBuffer</span>,10)</span>;</span><br><span class="line">void <span class="constructor">HAL_UART_TxCpltCallback(UART_HandleTypeDef <span class="operator">*</span><span class="params">huart</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	 <span class="keyword">if</span>(huart<span class="operator"> == </span>&amp;huart1)</span><br><span class="line">	 &#123;</span><br><span class="line">		   flag++;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="5-2-3-接收"><a href="#5-2-3-接收" class="headerlink" title="5.2.3 接收"></a>5.2.3 接收</h3><ul>
-<li><p>阻塞接收，在规定时间内程序阻塞在此等待接收规定的数据个数</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HAL_StatusTypeDef <span class="constructor">HAL_UART_Receive(UART_HandleTypeDef <span class="operator">*</span><span class="params">huart</span>, <span class="params">uint8_t</span> <span class="operator">*</span><span class="params">pData</span>, <span class="params">uint16_t</span> Size, <span class="params">uint32_t</span> Timeout)</span></span><br><span class="line"><span class="constructor">HAL_UART_Receive(&amp;<span class="params">huart1</span>,<span class="params">rxBuffer</span>,3,5000)</span>;</span><br></pre></td></tr></table></figure></li>
-<li><p>中断接收，在需要接收的位置启动HAL_UART_Receive_IT，数据接收完毕后将触发接收完成中断HAL_UART_RxCpltCallback</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="constructor">HAL_UART_Receive_IT(&amp;<span class="params">huart1</span>, <span class="params">rxBuffer</span>, 1)</span>;</span><br><span class="line">void <span class="constructor">HAL_UART_RxCpltCallback(UART_HandleTypeDef <span class="operator">*</span><span class="params">huart</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	 <span class="keyword">if</span>(huart<span class="operator"> == </span>&amp;huart1)</span><br><span class="line">	 &#123;</span><br><span class="line">		  recvDataNumber++;</span><br><span class="line">		  <span class="constructor">HAL_UART_Receive_IT(<span class="params">huart</span>, <span class="params">rxBuffer</span>, 1)</span>;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><ul>
+<li>使用vscode打开keil的工程</li>
 </ul>
 
       
@@ -311,11 +261,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		
 		</ul>
@@ -371,7 +317,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -385,18 +331,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2021年1月新番简评
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">排序（C）</div>
+    <a href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2021年1月新番简评</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,7 +360,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">2. 安装相关软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 创建工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BA"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 时钟配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 调试配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-GPIO%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 GPIO配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-USART%E9%85%8D%E7%BD%AE"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 USART配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">4. 生成代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-keil%E5%B7%A5%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">5. keil工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E7%8E%AF%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-GPIO%E4%BE%8B%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">5.1 GPIO例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-USART%E4%BE%8B%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">5.2 USART例程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E6%B7%BB%E5%8A%A0printf%E6%98%A0%E5%B0%84"><span class="toc-number">5.3.1.</span> <span class="toc-text">5.2.1 添加printf映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E5%8F%91%E9%80%81"><span class="toc-number">5.3.2.</span> <span class="toc-text">5.2.2 发送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-%E6%8E%A5%E6%94%B6"><span class="toc-number">5.3.3.</span> <span class="toc-text">5.2.3 接收</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. 安装和配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3 使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
