@@ -8,17 +8,21 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>vscode编译keil工程 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。 2. 安装和配置 首先需要安装keil和vscode两款软件  打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件  安装后点击扩展设置，配置keil的地址">
+  <meta name="description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode编译keil工程">
 <meta property="og:url" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。 2. 安装和配置 首先需要安装keil和vscode两款软件  打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件  安装后点击扩展设置，配置keil的地址">
+<meta property="og:description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png">
 <meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_3.png">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_4.png">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_5.png">
+<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_6.png">
 <meta property="article:published_time" content="2021-03-25T12:57:34.000Z">
-<meta property="article:modified_time" content="2021-03-25T05:32:02.708Z">
+<meta property="article:modified_time" content="2021-03-25T05:41:26.086Z">
 <meta property="article:author" content="Lissettecarlr">
 <meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
@@ -193,16 +197,23 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。</p>
+<span id="more"></span>
+
 <h1 id="2-安装和配置"><a href="#2-安装和配置" class="headerlink" title="2. 安装和配置"></a>2. 安装和配置</h1><ul>
 <li><p>首先需要安装keil和vscode两款软件</p>
 </li>
-<li><p>打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png"></p>
+<li><p>打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件(还得安装C/C++那个哦)<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png"></p>
 </li>
 <li><p>安装后点击扩展设置，配置keil的地址<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png"></p>
 </li>
 </ul>
-<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><ul>
-<li>使用vscode打开keil的工程</li>
+<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><h2 id="3-1-使用vscode打开keil的工程"><a href="#3-1-使用vscode打开keil的工程" class="headerlink" title="3.1 使用vscode打开keil的工程"></a>3.1 使用vscode打开keil的工程</h2><ul>
+<li>在左侧窗体会发现多出了一栏，展开后点击右边的图标选择工程<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_3.png"></li>
+<li>选择工程<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_4.png"></li>
+</ul>
+<h2 id="3-2-编译-下载-重编译"><a href="#3-2-编译-下载-重编译" class="headerlink" title="3.2 编译\下载\重编译"></a>3.2 编译\下载\重编译</h2><ul>
+<li>在打开工程后，鼠标移动到左侧工程目录上，会显示出三个图标，分别是编译、下载、重编译<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_5.png"></li>
+<li>点击编译后，在vscode的终端会打印日志<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_6.png"></li>
 </ul>
 
       
@@ -360,7 +371,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. 安装和配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3 使用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. 安装和配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BD%BF%E7%94%A8vscode%E6%89%93%E5%BC%80keil%E7%9A%84%E5%B7%A5%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 使用vscode打开keil的工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%BC%96%E8%AF%91-%E4%B8%8B%E8%BD%BD-%E9%87%8D%E7%BC%96%E8%AF%91"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 编译\下载\重编译</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
