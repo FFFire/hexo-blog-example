@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: C | blog</title>
+  <title>数据结构：FIFO | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blog">
-<meta property="og:url" content="http://example.com/tags/C/index.html">
+  <meta name="description" content="1. 前言First Input First Output，先进先出队列，本文主要记录此结构的C实现，以下是一个循环队列，且当数据填满后，将抛弃旧数据存入新数据。直接用就请进入此仓库，在buffer&#x2F;fifo文件夹下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构：FIFO">
+<meta property="og:url" content="http://example.com/2021/03/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AFIFO/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="嵌入式软件、摄影、WOWER、深度动漫爱好者">
+<meta property="og:description" content="1. 前言First Input First Output，先进先出队列，本文主要记录此结构的C实现，以下是一个循环队列，且当数据填满后，将抛弃旧数据存入新数据。直接用就请进入此仓库，在buffer&#x2F;fifo文件夹下">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-26T14:02:03.000Z">
+<meta property="article:modified_time" content="2021-03-26T07:53:02.245Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
@@ -167,102 +169,229 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-数据结构：FIFO" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构：FIFO
+    </h1>
+  
+
+        
+        <a href="/2021/03/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AFIFO/" class="archive-article-date">
+  	<time datetime="2021-03-26T14:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>First Input First Output，先进先出队列，本文主要记录此结构的C实现，以下是一个循环队列，且当数据填满后，将抛弃旧数据存入新数据。直接用就请进入<a target="_blank" rel="noopener" href="https://github.com/lissettecarlr/Embedded-tool-function">此仓库</a>，在buffer/fifo文件夹下</p>
+<span id="more"></span>
+
+<h1 id="2-宏定义"><a href="#2-宏定义" class="headerlink" title="2. 宏定义"></a>2. 宏定义</h1><ul>
+<li>是否在队列满的时候抛弃旧数据而存入新数据的开关宏，默认是开启的，不需要屏蔽即可<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RING_OUT_THE_OLD</span></span><br></pre></td></tr></table></figure></li>
+<li>判断队列是否为空，当写地址等于读地址的时候认为队列为空<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define isFifoEmpty( fifo )                     (<span class="function"><span class="params">(fifo)</span>-&gt;</span>posR == <span class="function"><span class="params">(fifo)</span>-&gt;</span>posW)</span><br></pre></td></tr></table></figure></li>
+<li>判断队列是否为满，当写地址的下一个地址等于读地址，则认为为满。但由于当前写地址指向位置实际上是没有存入数据的，所以这样设计将会浪费掉一个存储区，也就是存储区域长度为3的时候，实际只能使用2.<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define isFifoFull( <span class="name">fifo</span> )                      ((((<span class="name">fifo</span>)-&gt;posW+1) % (<span class="name">fifo</span>)-&gt;size) == (<span class="name">fifo</span>)-&gt;posR)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="3-结构体"><a href="#3-结构体" class="headerlink" title="3. 结构体"></a>3. 结构体</h1><ul>
+<li><p>由于不想需求不同每次都去修改队列结构体，所以定义了一个枚举来代表存储器的数据类型，在初始化的时候传入，目前就只有两种，后面再添加</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef enum </span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">DATA_TYPE_U8</span>=1,</span><br><span class="line">    <span class="attribute">DATA_TYPE_U16</span>=2,</span><br><span class="line">&#125;dataType_t;</span><br></pre></td></tr></table></figure></li>
+<li><p>队列结构体，用来保存实例队列的信息</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sFifo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">void</span> *data; <span class="comment">//数据存储区</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>;<span class="comment">//数据存储区大小</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> posR;<span class="comment">//读地址</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> posW;<span class="comment">//写地址</span></span><br><span class="line">    dataType_t type;<span class="comment">//存储区数据类型</span></span><br><span class="line">&#125;Fifo_t;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="4-功能函数"><a href="#4-功能函数" class="headerlink" title="4. 功能函数"></a>4. 功能函数</h1><ul>
+<li><p>首先是初始化函数，实际上就是对实例进行填空</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/*!</span><br><span class="line"> * \brief 初始化队列</span><br><span class="line"> * \param [<span class="type">IN</span>] fifo 执行的队列</span><br><span class="line"> * \param [<span class="type">IN</span>] <span class="class"><span class="keyword">data</span> 用于存储的区域</span></span><br><span class="line"> * \param [<span class="type">IN</span>] size 存储区域大小</span><br><span class="line"> * \param [<span class="type">IN</span>] <span class="class"><span class="keyword">type</span> 存储数据类型</span></span><br><span class="line"> */</span><br><span class="line"><span class="title">void</span> fifoInit(<span class="type">Fifo_t</span> *fifo,void *<span class="class"><span class="keyword">data</span>,unsigned int size,dataType_t <span class="keyword">type</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    fifo-&gt;<span class="class"><span class="keyword">data</span> = <span class="keyword">data</span>;</span></span><br><span class="line">    fifo-&gt;size = size;</span><br><span class="line">    fifo-&gt;<span class="class"><span class="keyword">type</span> = <span class="keyword">type</span>;</span></span><br><span class="line">    fifo-&gt;posR = <span class="number">0</span>;</span><br><span class="line">    fifo-&gt;posW = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>然后是存数据，其中根据初始化时候的数据类型，对传入data进行类型转换</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fifoPush</span><span class="params">(Fifo_t *fifo,<span class="keyword">void</span> *data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(isFifoFull(fifo) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//此宏用于启动队列满时新数据挤掉旧数据的功能</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> RING_OUT_THE_OLD</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>        </span></span><br><span class="line">        <span class="comment">//定义一个局部变量来取旧数据</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">short</span> temp;</span><br><span class="line">        fifoPop(fifo,&amp;temp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fifo-&gt;type == DATA_TYPE_U8)</span><br><span class="line">    &#123;</span><br><span class="line">       ((<span class="keyword">unsigned</span> <span class="keyword">char</span> *)(fifo-&gt;data))[fifo-&gt;posW] = *(<span class="keyword">unsigned</span> <span class="keyword">char</span>*)(data);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(fifo-&gt;type == DATA_TYPE_U16)</span><br><span class="line">    &#123;   </span><br><span class="line">       ((<span class="keyword">unsigned</span> <span class="keyword">short</span> *)(fifo-&gt;data))[fifo-&gt;posW] = *(<span class="keyword">unsigned</span> <span class="keyword">short</span>*)(data);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//更新下一次存储位置</span></span><br><span class="line">    fifo-&gt;posW = (fifo-&gt;posW+<span class="number">1</span>)%fifo-&gt;<span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>之后是取数据</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int fifoPop(Fifo_t *fifo,void *<span class="keyword">data</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>( isFifoEmpty(fifo) == <span class="number">1</span> )<span class="comment">//为空</span></span><br><span class="line">    &#123;</span><br><span class="line">        return -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">if</span>(fifo-&gt;</span>type == DATA_TYPE_U8)</span><br><span class="line">    &#123;</span><br><span class="line">        *(<span class="function"><span class="title">unsigned</span> char *)<span class="keyword">data</span> = ((unsigned char*)(fifo-&gt;</span><span class="function"><span class="title">data</span>))[fifo-&gt;</span>posR];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">else</span> <span class="keyword">if</span>(fifo-&gt;</span>type == DATA_TYPE_U16)</span><br><span class="line">    &#123;</span><br><span class="line">        *(<span class="function"><span class="title">unsigned</span> short*)<span class="keyword">data</span> = ((unsigned short*)(fifo-&gt;</span><span class="function"><span class="title">data</span>))[fifo-&gt;</span>posR];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;&#125;</span><br><span class="line">    <span class="function"><span class="title">fifo</span>-&gt;</span><span class="function"><span class="title">posR</span> = (fifo-&gt;</span><span class="function"><span class="title">posR</span>+1) % fifo-&gt;</span>size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>清空队列，实际就是修改读写地址为0，队列中实际位置的数据仍然存在。</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void fifoClear(Fifo_t *fifo)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="title">fifo</span>-&gt;</span>posR = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="title">fifo</span>-&gt;</span>posW = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>获取队列当前数据个数</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> fifoLenth(Fifo_t *fifo)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> len;</span><br><span class="line"></span><br><span class="line">    len = (fifo-&gt;posW + fifo-&gt;size - fifo-&gt;posR) % fifo-&gt;size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="5-使用"><a href="#5-使用" class="headerlink" title="5. 使用"></a>5. 使用</h1><p>使用方式，github仓库中fifo文件夹下的main函数有示例，例如</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">unsigned <span class="built_in">char</span> a<span class="literal">[<span class="number">10</span>]</span>=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">Fifo_t buffer;</span><br><span class="line">unsigned <span class="built_in">char</span> w1=<span class="number">1</span>,w2=<span class="number">2</span>;</span><br><span class="line">unsigned <span class="built_in">char</span> r1=<span class="number">0</span>,r2=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">fifo<span class="constructor">Init(&amp;<span class="params">buffer</span>,<span class="params">a</span>,10,DATA_TYPE_U8)</span>;</span><br><span class="line">fifo<span class="constructor">Push(&amp;<span class="params">buffer</span>,&amp;<span class="params">w1</span>)</span>;</span><br><span class="line">fifo<span class="constructor">Push(&amp;<span class="params">buffer</span>,&amp;<span class="params">w2</span>)</span>;</span><br><span class="line">printf(<span class="string">&quot;test_u8: fifo len:%d\n&quot;</span>,fifo<span class="constructor">Lenth(&amp;<span class="params">buffer</span>)</span>);</span><br><span class="line">fifo<span class="constructor">Pop(&amp;<span class="params">buffer</span>,&amp;<span class="params">r1</span>)</span>;</span><br><span class="line">fifo<span class="constructor">Pop(&amp;<span class="params">buffer</span>,&amp;<span class="params">r2</span>)</span>;</span><br><span class="line">printf(<span class="string">&quot;test_u8: r1:%d,r2:%d\n&quot;</span>,r1,r2);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">unsigned</span> short a[<span class="number">10</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="attribute">Fifo_t</span> buffer;</span><br><span class="line"><span class="attribute">unsigned</span> short w<span class="number">1</span>=<span class="number">0</span>x<span class="number">1234</span>,w<span class="number">2</span>=<span class="number">0</span>x<span class="number">4321</span>;</span><br><span class="line"><span class="attribute">unsigned</span> short r<span class="number">1</span>=<span class="number">0</span>,r<span class="number">2</span>=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">fifoInit</span>(&amp;buffer,a,<span class="number">10</span>,DATA_TYPE_U<span class="number">16</span>);</span><br><span class="line"><span class="attribute">fifoPush</span>(&amp;buffer,&amp;w<span class="number">1</span>);</span><br><span class="line"><span class="attribute">fifoPush</span>(&amp;buffer,&amp;w<span class="number">2</span>);</span><br><span class="line"><span class="attribute">printf</span>(<span class="string">&quot;test_u16: fifo len:%d\n&quot;</span>,fifoLenth(&amp;buffer));</span><br><span class="line"><span class="attribute">fifoPop</span>(&amp;buffer,&amp;r<span class="number">1</span>);</span><br><span class="line"><span class="attribute">fifoPop</span>(&amp;buffer,&amp;r<span class="number">2</span>);</span><br><span class="line"><span class="attribute">printf</span>(<span class="string">&quot;test_u16: r1:%04X,r2:%04X\n&quot;</span>,r<span class="number">1</span>,r<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+      
+
+      
+        
+          <div class="essayending">
+            <div>
+             <div style="text-align:center;color: #ccc;font-size:22px;">
+             <br/>
+             <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+             <br/>
+             <br/>
+              <br/>
+              <br/>
+             </div>
+            </div>
+          </div>
+          
             
-  
-  
-    
-    
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>哼！就算讨好我也没有什么好处哦[狗头]<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-19T14:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/">排序（C）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AFIFO/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2021-03-17T13:16:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vscode编译keil工程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/">GCC编译流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">2. 宏定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">3.</span> <span class="toc-text">3. 结构体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%8A%9F%E8%83%BD%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">4. 功能函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">5. 使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -288,9 +417,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
