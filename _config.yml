@@ -12,7 +12,7 @@ keywords: "博客"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://lissettecarlr.com/
 # permalink: :year/:month/:day/:title/
 permalink: posts/:abbrlink/
 abbrlink:
@@ -159,3 +159,5 @@ live2d:
     show: true
 
 
+# 字数阅读时长统计
+word_count: false
