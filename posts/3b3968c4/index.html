@@ -6,27 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>vscode编译keil工程 | blog</title>
+  <title>vscode使用Astyle排版 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。">
+  <meta name="description" content="1. 前言在看RT-thread的代码规范的时候发现了astyle的排版工具，于是就安装上来试了试，此文就是对其的记录。实际上嘛，在敲的时候就按照规范写，这工具也没啥用，不过在不得不看瞎写的代码的时候，用这东西格式化下还是挺舒服的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vscode编译keil工程">
-<meta property="og:url" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:title" content="vscode使用Astyle排版">
+<meta property="og:url" content="http://example.com/posts/3b3968c4/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="1. 前言早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。">
+<meta property="og:description" content="1. 前言在看RT-thread的代码规范的时候发现了astyle的排版工具，于是就安装上来试了试，此文就是对其的记录。实际上嘛，在敲的时候就按照规范写，这工具也没啥用，不过在不得不看瞎写的代码的时候，用这东西格式化下还是挺舒服的。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_3.png">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_4.png">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_5.png">
-<meta property="og:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_6.png">
-<meta property="article:published_time" content="2021-03-25T12:57:34.000Z">
-<meta property="article:modified_time" content="2021-03-27T08:22:06.958Z">
+<meta property="og:image" content="http://example.com/posts/3b3968c4/p_1.png">
+<meta property="og:image" content="http://example.com/posts/3b3968c4/p_2.png">
+<meta property="og:image" content="http://example.com/posts/3b3968c4/p_3.png">
+<meta property="article:published_time" content="2021-03-27T16:03:33.000Z">
+<meta property="article:modified_time" content="2021-03-29T04:33:28.106Z">
 <meta property="article:author" content="Lissettecarlr">
+<meta property="article:tag" content="工具">
 <meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png">
+<meta name="twitter:image" content="http://example.com/posts/3b3968c4/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -176,46 +174,40 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vscode编译keil工程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vscode使用Astyle排版" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vscode编译keil工程
+      vscode使用Astyle排版
     </h1>
   
 
         
-        <a href="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2021-03-25T12:57:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-25</time>
+        <a href="/posts/3b3968c4/" class="archive-article-date">
+  	<time datetime="2021-03-27T16:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>早就不想用keil的代码编辑器了，但是放不下它的编译器。Keil Assistant插件能解决这个问题，全程都使用vscode，不用再进行这边些代码，那边去编译的麻烦方式。</p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>在看<a target="_blank" rel="noopener" href="https://github.com/RT-Thread/rt-thread/blob/master/documentation/coding_style_cn.md">RT-thread的代码规范</a>的时候发现了astyle的排版工具，于是就安装上来试了试，此文就是对其的记录。实际上嘛，在敲的时候就按照规范写，这工具也没啥用，不过在不得不看瞎写的代码的时候，用这东西格式化下还是挺舒服的。</p>
 <span id="more"></span>
 
-<h1 id="2-安装和配置"><a href="#2-安装和配置" class="headerlink" title="2. 安装和配置"></a>2. 安装和配置</h1><ul>
-<li><p>首先需要安装keil和vscode两款软件</p>
-</li>
-<li><p>打开vscode，选择扩展(ctrl+shitf+x)，搜索keil，找到Keil Assistant插件(还得安装C/C++那个哦)<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_1.png"></p>
-</li>
-<li><p>安装后点击扩展设置，配置keil的地址<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_2.png"></p>
-</li>
+<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/astyle/files/">下载astyle</a>，解压后将AStyle.exe添加到path环境变量<br><img src="/posts/3b3968c4/p_1.png"></li>
+<li>在vscode的扩展中搜索AStyle，进行安装，安装完成后重启vscode<br><img src="/posts/3b3968c4/p_2.png"></li>
+<li>修改AStyle的配置，插件点击齿轮，再选择扩展设置，随便找个点开，在setting.json中编辑<br><img src="/posts/3b3968c4/p_3.png"></li>
+<li>复制以下内容到其中，排版参数可见<a target="_blank" rel="noopener" href="http://astyle.sourceforge.net/astyle.html#_Option_Files">文档</a><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;astyle.additional_languages&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;c&quot;</span>,</span><br><span class="line">    <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;astyle.cmd_options&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;--style=allman&quot;</span>,<span class="regexp">//</span>风格格式和缩进</span><br><span class="line">    <span class="string">&quot;--indent=spaces=4&quot;</span>,<span class="regexp">//</span>缩进<span class="number">4</span>个空格</span><br><span class="line">    <span class="string">&quot;--pad-oper&quot;</span>,<span class="regexp">//</span>操作符两端插入一个空格</span><br><span class="line">    <span class="string">&quot;--pad-header&quot;</span>,<span class="regexp">//</span> <span class="string">&#x27;if&#x27;</span>, <span class="string">&#x27;for&#x27;</span>, <span class="string">&#x27;while&#x27;</span>与后面的括号间加空格</span><br><span class="line">    <span class="string">&quot;--align-pointer=name&quot;</span>,<span class="regexp">//</span>将指针和取址符和变量名放一起</span><br><span class="line">    <span class="string">&quot;--convert-tabs&quot;</span>,<span class="regexp">//</span>Converts tabs into spaces <span class="keyword">in</span> the non-indentation part of the line</span><br><span class="line">    <span class="string">&quot;--indent-preproc-block&quot;</span>,<span class="regexp">//</span>缩进宏定义</span><br><span class="line">    <span class="string">&quot;--unpad-paren&quot;</span>, <span class="regexp">//</span>移除多余括号</span><br><span class="line">    <span class="string">&quot;--suffix=none&quot;</span>,<span class="regexp">//</span>不保留原始文件</span><br><span class="line">    <span class="string">&quot;--lineend=windows&quot;</span>,<span class="regexp">//</span>windows \ linux \macold</span><br><span class="line">    <span class="string">&quot;--verbose&quot;</span>,    <span class="regexp">//</span>详细的显示模式</span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;[c]&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;editor.defaultFormatter&quot;</span>: <span class="string">&quot;chiehyu.vscode-astyle&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><h2 id="3-1-使用vscode打开keil的工程"><a href="#3-1-使用vscode打开keil的工程" class="headerlink" title="3.1 使用vscode打开keil的工程"></a>3.1 使用vscode打开keil的工程</h2><ul>
-<li>在左侧窗体会发现多出了一栏，展开后点击右边的图标选择工程<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_3.png"></li>
-<li>选择工程<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_4.png"></li>
-</ul>
-<h2 id="3-2-编译-下载-重编译"><a href="#3-2-编译-下载-重编译" class="headerlink" title="3.2 编译\下载\重编译"></a>3.2 编译\下载\重编译</h2><ul>
-<li>在打开工程后，鼠标移动到左侧工程目录上，会显示出三个图标，分别是编译、下载、重编译<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_5.png"></li>
-<li>点击编译后，在vscode的终端会打印日志<br><img src="/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/p_6.png"></li>
-</ul>
-
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alt+shitf+f</span><br></pre></td></tr></table></figure>
+<p>示例代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ASDF_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ASDF_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ASDF__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b;</span><br><span class="line">b=a;</span><br><span class="line"><span class="keyword">char</span>*foo1;</span><br><span class="line"><span class="keyword">if</span>(a=b)&#123;b=a;&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,b+<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自动排版后代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ASDF_</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> _ASDF_</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifndef</span> _ASDF__</span></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    b = a;</span><br><span class="line">    <span class="keyword">char</span> *foo1;</span><br><span class="line">    <span class="keyword">if</span> (a = b)</span><br><span class="line">    &#123;</span><br><span class="line">        b = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, b + <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -271,6 +263,10 @@ var _hmt = _hmt || [];
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
@@ -328,7 +324,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/25/vscode%E7%BC%96%E8%AF%91keil%E5%B7%A5%E7%A8%8B/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/posts/3b3968c4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +338,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/03/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AFIFO/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/5a3fb175/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据结构：FIFO
+          hexo插件
         
       </div>
     </a>
   
   
-    <a href="/2021/03/23/2021%E5%B9%B41%E6%9C%88%E6%96%B0%E7%95%AA%E7%AE%80%E8%AF%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2021年1月新番简评</div>
+    <a href="/posts/abb6b1e2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构：FIFO</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -380,7 +376,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. 安装和配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BD%BF%E7%94%A8vscode%E6%89%93%E5%BC%80keil%E7%9A%84%E5%B7%A5%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 使用vscode打开keil的工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%BC%96%E8%AF%91-%E4%B8%8B%E8%BD%BD-%E9%87%8D%E7%BC%96%E8%AF%91"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 编译\下载\重编译</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">1. 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">2. 使用</span></a></li></ol>
                     </div>
                 </span>
             </div>

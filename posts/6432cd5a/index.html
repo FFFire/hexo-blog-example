@@ -6,21 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>排序（C） | blog</title>
+  <title>vscode下的C编译 | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言本文主要记录使用过的排序算法，之后有新的接触再更新。我自己的工具函数仓库    名称 最坏时间复杂度 最好时间复杂度 空间复杂度    冒泡排序 O(n^2) O(n) O(1)   快速排序 O(n^2) O(nlogn) O(1)   哈希计数排序 O(n+k) O(n+k) O(k)">
+  <meta name="description" content="1. 前言最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序（C）">
-<meta property="og:url" content="http://example.com/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/index.html">
+<meta property="og:title" content="vscode下的C编译">
+<meta property="og:url" content="http://example.com/posts/6432cd5a/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="1. 前言本文主要记录使用过的排序算法，之后有新的接触再更新。我自己的工具函数仓库    名称 最坏时间复杂度 最好时间复杂度 空间复杂度    冒泡排序 O(n^2) O(n) O(1)   快速排序 O(n^2) O(nlogn) O(1)   哈希计数排序 O(n+k) O(n+k) O(k)">
+<meta property="og:description" content="1. 前言最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-19T14:17:24.000Z">
-<meta property="article:modified_time" content="2021-03-27T08:22:06.958Z">
+<meta property="og:image" content="http://example.com/posts/6432cd5a/p_1.png">
+<meta property="og:image" content="http://example.com/posts/6432cd5a/p_2.png">
+<meta property="article:published_time" content="2021-03-17T12:33:32.000Z">
+<meta property="article:modified_time" content="2021-03-29T04:33:28.106Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/posts/6432cd5a/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -170,73 +172,74 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-排序（C）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vscode下的C编译" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      排序（C）
+      vscode下的C编译
     </h1>
   
 
         
-        <a href="/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-19T14:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
+        <a href="/posts/6432cd5a/" class="archive-article-date">
+  	<time datetime="2021-03-17T12:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要记录使用过的排序算法，之后有新的接触再更新。<a target="_blank" rel="noopener" href="https://github.com/lissettecarlr/Embedded-tool-function">我自己的工具函数仓库</a></p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>最近重装了台式机，所以需要再布置环境，并且刚搭建了hexo博客，便记录一下如何弄vscode中C的编译环境。</p>
+<span id="more"></span>
+
+<h1 id="2-安装MinGW-Minimalist-GNU-for-Windows"><a href="#2-安装MinGW-Minimalist-GNU-for-Windows" class="headerlink" title="2. 安装MinGW(Minimalist GNU for Windows)"></a>2. 安装MinGW(Minimalist GNU for Windows)</h1><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/">下载地址</a><br>exe安装包直接点，然后途中的安装选择如下：<br><img src="/posts/6432cd5a/p_1.png"></p>
 <table>
 <thead>
 <tr>
 <th>名称</th>
-<th>最坏时间复杂度</th>
-<th>最好时间复杂度</th>
-<th>空间复杂度</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>冒泡排序</td>
-<td>O(n^2)</td>
-<td>O(n)</td>
-<td>O(1)</td>
+<td>Version</td>
+<td>制定版本号，没啥额外条件就选最新的</td>
 </tr>
 <tr>
-<td>快速排序</td>
-<td>O(n^2)</td>
-<td>O(nlogn)</td>
-<td>O(1)</td>
+<td>Architecture</td>
+<td>64位系统选择x86_64，32位系统选择i686</td>
 </tr>
 <tr>
-<td>哈希计数排序</td>
-<td>O(n+k)</td>
-<td>O(n+k)</td>
-<td>O(k)</td>
+<td>Threads</td>
+<td>设置线程标准</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>设置异常处理系统</td>
+</tr>
+<tr>
+<td>Build revision</td>
+<td>没得选，默认</td>
+</tr>
+<tr>
+<td>安装完成后找到文件放置的目录，然后会看到一个mingw-w64.bat脚本，直接运行弹出的命令行窗体中便可以直接使用gcc进行测试安装情况。</td>
+<td></td>
+</tr>
+<tr>
+<td>要想全局使用肯定还是得配置环境变量，怎么配置其实就是对上面脚本右键编辑可以看到：</td>
+<td></td>
 </tr>
 </tbody></table>
-<span id="more"></span>
-
-<h1 id="2-算法实现"><a href="#2-算法实现" class="headerlink" title="2. 算法实现"></a>2. 算法实现</h1><h2 id="2-1-冒泡排序"><a href="#2-1-冒泡排序" class="headerlink" title="2.1 冒泡排序"></a>2.1 冒泡排序</h2><p>对于使用空间比较紧张的嵌入式应用来说，冒泡排序其实挺不错的，就是数据多了后速度非常慢。</p>
-<ul>
-<li>最基本的写法</li>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">set</span> PATH=C:\Program Files\mingw-w<span class="number">64</span>\x<span class="number">86</span>_<span class="number">64</span>-<span class="number">8</span>.<span class="number">1</span>.<span class="number">0</span>-win<span class="number">32</span>-seh-rt_v<span class="number">6</span>-rev<span class="number">0</span>\mingw<span class="number">64</span>\bin;%PATH%</span><br></pre></td></tr></table></figure>
+<p>直接复制地址对PATH进行添加即可，完成后打开cmd，使用gcc -v测试一下。</p>
+<h1 id="3-vscode插件"><a href="#3-vscode插件" class="headerlink" title="3. vscode插件"></a>3. vscode插件</h1><ul>
+<li>C/C++</li>
+<li>Code Runner<br>安装完成后重启VSCODE<br>创建个文件测试一下，可以点击右上角的三角或者直接文本中右键run code<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/6432cd5a/p_2.png"></li>
 </ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 冒泡排序</span></span><br><span class="line"><span class="comment"> * \param [IN] arr 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] len 数据个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">void <span class="keyword">BubbleSort(int </span>arr[], int len)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    int <span class="keyword">j,i;</span></span><br><span class="line"><span class="keyword"> </span>   for(i=<span class="number">0</span><span class="comment">;i&lt;len-1;i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        for(<span class="keyword">j=0;j&lt;len-1-i;j++)</span></span><br><span class="line"><span class="keyword"> </span>       &#123;</span><br><span class="line">            if(arr[<span class="keyword">j]&gt;arr[j+1])</span></span><br><span class="line"><span class="keyword"> </span>           &#123;</span><br><span class="line">                temp = arr[<span class="keyword">j];</span></span><br><span class="line"><span class="keyword"> </span>               arr[<span class="keyword">j] </span>= arr[<span class="keyword">j+1];</span></span><br><span class="line"><span class="keyword"> </span>               arr[<span class="keyword">j+1] </span>= temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通用类型的写法<br>对于嵌入式编程来说，用到int的情况可能是最少的了，都是些u8，u16这些，使用上面的函数就给你报传参警告，于是就需要一个通用点的函数。<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">void</span> *data1,<span class="keyword">void</span> *data2,<span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">size</span> &gt;<span class="number">8</span>)<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> temp[<span class="number">8</span>]; <span class="comment">//不动态申请，假设最大为longlong</span></span><br><span class="line">    <span class="built_in">memcpy</span>(temp,data1,<span class="built_in">size</span>);</span><br><span class="line">    <span class="built_in">memcpy</span>(data1,data2,<span class="built_in">size</span>);</span><br><span class="line">    <span class="built_in">memcpy</span>(data2,temp,<span class="built_in">size</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 冒泡排序</span></span><br><span class="line"><span class="comment"> * \param [IN] arr 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] len 数据个数</span></span><br><span class="line"><span class="comment"> * \param [IN] size 数据类型大小</span></span><br><span class="line"><span class="comment"> * \param [IN] compare 比较大小</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">void</span> *arr,<span class="keyword">unsigned</span> <span class="keyword">int</span> len,<span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>,<span class="keyword">int</span> (*compare)(<span class="keyword">const</span> <span class="keyword">void</span>*a,<span class="keyword">const</span> <span class="keyword">void</span>*b))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;len<span class="number">-1</span>-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( compare(arr+j*<span class="built_in">size</span>,arr+(j+<span class="number">1</span>)*<span class="built_in">size</span>) &gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//printf(&quot;%d,%d  &quot;,*(int *)(arr+j*size),*(int *)(arr+(j+1)*size));</span></span><br><span class="line">                swap(arr+j*<span class="built_in">size</span>,arr+(j+<span class="number">1</span>)*<span class="built_in">size</span>,<span class="built_in">size</span>);</span><br><span class="line">                <span class="comment">//printf(&quot;%d,%d\n&quot;,*(int *)(arr+j*size),*(int *)(arr+(j+1)*size));</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-使用方式：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * \brief 比较函数，网上很多是减法比较，但当参数是无符号时就完蛋了。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *a,<span class="keyword">const</span> <span class="keyword">void</span> *b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( (*(<span class="keyword">int</span> *)a) &gt; (*(<span class="keyword">int</span> *)b) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">9</span>] = &#123;<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    BubbleSort(a,<span class="number">9</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>),cmp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="2-2-快速排序"><a href="#2-2-快速排序" class="headerlink" title="2.2 快速排序"></a>2.2 快速排序</h2><p>如其名，就是提升速度，但是也牺牲了内存，实现方式是递归，实际内存消耗不固定是个弊端。</p>
-<ul>
-<li>下列实现直接使用库函数方式<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 快速排序，头文件:stdlib.h</span></span><br><span class="line"><span class="comment"> * \param [IN] base 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] nitems 数据个数</span></span><br><span class="line"><span class="comment"> * \param [IN] size 数据类型大小</span></span><br><span class="line"><span class="comment"> * \param [IN] compar 比较大小</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">void</span> *base, <span class="keyword">size_t</span> nitems, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">int</span> (*compar)(<span class="keyword">const</span> <span class="keyword">void</span> *, <span class="keyword">const</span> <span class="keyword">void</span>*))</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从小到大排序示例</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>*a,<span class="keyword">const</span> <span class="keyword">void</span>*b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( (*(<span class="keyword">int</span> *)a) &gt; (*(<span class="keyword">int</span> *)b) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">9</span>] = &#123;<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    qsort(a,<span class="number">9</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>),cmp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="3-3-哈希排序"><a href="#3-3-哈希排序" class="headerlink" title="3.3 哈希排序"></a>3.3 哈希排序</h2><p>利用哈希表来进行排序，将数据依次填入数组中，则依据数组下标达到排序的目的。优点在于耗时短，使用空间固定，缺点是得知道输入数据的范围。</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HASH_SIZE 4096</span></span><br><span class="line"><span class="keyword">static</span> u8 hash[HASH_SIZE] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">leakSort</span><span class="params">(u16 *data,u16 <span class="built_in">size</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(hash, <span class="number">0</span>, (HASH_SIZE) * <span class="keyword">sizeof</span>(hash[<span class="number">0</span>]));</span><br><span class="line">    <span class="comment">//填充hash表</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++) hash[data[i]]++;</span><br><span class="line">    <span class="comment">//按照顺序读出</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>,j=<span class="number">0</span>; i &lt; (HASH_SIZE); i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash[i] &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash[i] != <span class="number">0</span>) </span><br><span class="line">            &#123;</span><br><span class="line">                data[j++] = i;</span><br><span class="line">                hash[i]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-实用示例"><a href="#3-实用示例" class="headerlink" title="3. 实用示例"></a>3. 实用示例</h1><p>在进行中位值滤波的时候，我准备将整个数据先进行排序，然后去掉前百分之二十和后百分之二十，得到中间数据。<br>于是首先选择了冒泡排序，但是很明显的发现排序耗时严重，数据来源于ADC采集，每采集10ms进行一次数据处理，然后开始下一次采集。仿真测试10ms输入数据为350左右，排序耗时20ms，这肯定不能忍了，得换。<br>之后立马想到了快速排序，然后。。。程序崩了，原因是栈炸了，快速排序是递归，消耗的栈空间。一开始还没检测出来，原因在于消耗是和数据的值有关，动态的- -|。<br>最后选择了哈希表计数排序，一开始就给分配固定空间，虽然消耗挺大的，但是尽在掌握，稳定啊！测试实际耗时变为了2ms。能够接受了。<br>上列的数据仅仅是参考。。和片子速度有关哈。</p>
+<h1 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h1><p>code run默认是编译当前文件，所以当需要编译多个文件的时候可以修改配置。<br>在文件-&gt;首选项-&gt;设置中搜索run code，找到 Executor Map 在settings.json中找到C编译，将gcc $filename修改未gcc *.c后，则会对当前文件夹进行编译。</p>
 
       
 
@@ -294,11 +297,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		
 		</ul>
@@ -354,7 +353,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/19/%E6%8E%92%E5%BA%8F%EF%BC%88C%EF%BC%89/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/posts/6432cd5a/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,18 +367,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/03/22/STM32cubemx%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/586509d0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          STM32cubemx的使用
+          GCC编译流程
         
       </div>
     </a>
   
   
-    <a href="/2021/03/17/GCC%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GCC编译流程</div>
+    <a href="/posts/1733e8d1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo的搭建和部署</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -406,7 +405,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%93%88%E5%B8%8C%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 哈希排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AE%9E%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 实用示例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85MinGW-Minimalist-GNU-for-Windows"><span class="toc-number">2.</span> <span class="toc-text">2. 安装MinGW(Minimalist GNU for Windows)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-vscode%E6%8F%92%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">3. vscode插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%85%B6%E4%BB%96"><span class="toc-number">4.</span> <span class="toc-text">4. 其他</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>VSCODE上写MD时的图片粘贴插件 | blog</title>
+  <title>排序（C） | blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言由于转移到了hexo下，文章都是MD格式，所以图片问题是首要解决的，简书和印象笔记都是直接粘贴图片，使用习惯后回不到手动填写图片地址的方式了，于是去找了找vscode上有没有插件支持粘贴的，还真找到了，paste Image">
+  <meta name="description" content="1. 前言本文主要记录使用过的排序算法，之后有新的接触再更新。我自己的工具函数仓库    名称 最坏时间复杂度 最好时间复杂度 空间复杂度    冒泡排序 O(n^2) O(n) O(1)   快速排序 O(n^2) O(nlogn) O(1)   哈希计数排序 O(n+k) O(n+k) O(k)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSCODE上写MD时的图片粘贴插件">
-<meta property="og:url" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:title" content="排序（C）">
+<meta property="og:url" content="http://example.com/posts/6162cde0/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="1. 前言由于转移到了hexo下，文章都是MD格式，所以图片问题是首要解决的，简书和印象笔记都是直接粘贴图片，使用习惯后回不到手动填写图片地址的方式了，于是去找了找vscode上有没有插件支持粘贴的，还真找到了，paste Image">
+<meta property="og:description" content="1. 前言本文主要记录使用过的排序算法，之后有新的接触再更新。我自己的工具函数仓库    名称 最坏时间复杂度 最好时间复杂度 空间复杂度    冒泡排序 O(n^2) O(n) O(1)   快速排序 O(n^2) O(nlogn) O(1)   哈希计数排序 O(n+k) O(n+k) O(k)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_1.png">
-<meta property="og:image" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_2.png">
-<meta property="article:published_time" content="2021-03-15T17:09:14.000Z">
-<meta property="article:modified_time" content="2021-03-27T08:22:06.958Z">
+<meta property="article:published_time" content="2021-03-19T14:17:24.000Z">
+<meta property="article:modified_time" content="2021-03-29T04:33:28.110Z">
 <meta property="article:author" content="Lissettecarlr">
-<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_1.png">
   
     <link rel="alternative" href="/atom.xml" title="blog" type="application/atom+xml">
   
@@ -172,101 +170,74 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vscode编辑MD图片粘贴插件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-排序（C）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      VSCODE上写MD时的图片粘贴插件
+      排序（C）
     </h1>
   
 
         
-        <a href="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2021-03-15T17:09:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
+        <a href="/posts/6162cde0/" class="archive-article-date">
+  	<time datetime="2021-03-19T14:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>由于转移到了hexo下，文章都是MD格式，所以图片问题是首要解决的，简书和印象笔记都是直接粘贴图片，使用习惯后回不到手动填写图片地址的方式了，于是去找了找vscode上有没有插件支持粘贴的，还真找到了，paste Image</p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>本文主要记录使用过的排序算法，之后有新的接触再更新。<a target="_blank" rel="noopener" href="https://github.com/lissettecarlr/Embedded-tool-function">我自己的工具函数仓库</a></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>最坏时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(n^2)</td>
+<td>O(nlogn)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>哈希计数排序</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(k)</td>
+</tr>
+</tbody></table>
 <span id="more"></span>
 
-<h1 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h1><p>完全不用配置就可以直接用，先去复制一个图片，然后ctrl+alt+v粘贴进来。默认存放位置就是文本存放的位置，名称是日期，例如</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![P1](2021<span class="string">-03</span><span class="string">-10</span><span class="string">-10</span><span class="string">-55</span><span class="string">-11</span>.png)</span><br></pre></td></tr></table></figure>
-<p>使用此插件最终目的是，希望粘贴进来的图片被独立文件夹保存，并且好区分，现进行如下配置</p>
+<h1 id="2-算法实现"><a href="#2-算法实现" class="headerlink" title="2. 算法实现"></a>2. 算法实现</h1><h2 id="2-1-冒泡排序"><a href="#2-1-冒泡排序" class="headerlink" title="2.1 冒泡排序"></a>2.1 冒泡排序</h2><p>对于使用空间比较紧张的嵌入式应用来说，冒泡排序其实挺不错的，就是数据多了后速度非常慢。</p>
 <ul>
-<li>Paste Image: Default Name 填写<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;currentFileNameWithoutExt&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>Paste Image: Base Path 填写<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;projectRoot&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>Paste Image: Path 填写<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;projectRoot&#125;</span>/<span class="built_in">source</span>/img/<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>Paste Image: Prefix 填写”\“</li>
+<li>最基本的写法</li>
 </ul>
-<p>以上配置是将hexo博客根目录作为了打开vscode工程的位置！</p>
-<p>效果如下图<br><img src="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_1.png"><br>可见粘贴的图片是在img中新建了文件夹，名称就是文本的名称，然后图片也是文本的名称。<br><img src="/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/p_2.png"></p>
-<p>补充：hexo这样配置图片，在本地MD里面显示是没啥问题，但是部署后网页是显示不了的。网上查了下，貌似只能通过如下方式。当然如果你不是用hexo博客，那以下内容请无视。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 冒泡排序</span></span><br><span class="line"><span class="comment"> * \param [IN] arr 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] len 数据个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">void <span class="keyword">BubbleSort(int </span>arr[], int len)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    int <span class="keyword">j,i;</span></span><br><span class="line"><span class="keyword"> </span>   for(i=<span class="number">0</span><span class="comment">;i&lt;len-1;i++)</span></span><br><span class="line">    &#123;</span><br><span class="line">        for(<span class="keyword">j=0;j&lt;len-1-i;j++)</span></span><br><span class="line"><span class="keyword"> </span>       &#123;</span><br><span class="line">            if(arr[<span class="keyword">j]&gt;arr[j+1])</span></span><br><span class="line"><span class="keyword"> </span>           &#123;</span><br><span class="line">                temp = arr[<span class="keyword">j];</span></span><br><span class="line"><span class="keyword"> </span>               arr[<span class="keyword">j] </span>= arr[<span class="keyword">j+1];</span></span><br><span class="line"><span class="keyword"> </span>               arr[<span class="keyword">j+1] </span>= temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>首先打开config.yml中自动建文件夹的配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>然后此时新建文章时，他就会在同目录下同时新建一个文件夹</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .<span class="regexp">/source/</span>_posts</span><br><span class="line">hexo <span class="keyword">new</span> 测试</span><br></pre></td></tr></table></figure></li>
-<li><p>然后是安装一个插件</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image --save</span><br></pre></td></tr></table></figure></li>
-<li><p>配置paste image</p>
-</li>
+<li>通用类型的写法<br>对于嵌入式编程来说，用到int的情况可能是最少的了，都是些u8，u16这些，使用上面的函数就给你报传参警告，于是就需要一个通用点的函数。<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">void</span> *data1,<span class="keyword">void</span> *data2,<span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">size</span> &gt;<span class="number">8</span>)<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> temp[<span class="number">8</span>]; <span class="comment">//不动态申请，假设最大为longlong</span></span><br><span class="line">    <span class="built_in">memcpy</span>(temp,data1,<span class="built_in">size</span>);</span><br><span class="line">    <span class="built_in">memcpy</span>(data1,data2,<span class="built_in">size</span>);</span><br><span class="line">    <span class="built_in">memcpy</span>(data2,temp,<span class="built_in">size</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 冒泡排序</span></span><br><span class="line"><span class="comment"> * \param [IN] arr 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] len 数据个数</span></span><br><span class="line"><span class="comment"> * \param [IN] size 数据类型大小</span></span><br><span class="line"><span class="comment"> * \param [IN] compare 比较大小</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">void</span> *arr,<span class="keyword">unsigned</span> <span class="keyword">int</span> len,<span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">size</span>,<span class="keyword">int</span> (*compare)(<span class="keyword">const</span> <span class="keyword">void</span>*a,<span class="keyword">const</span> <span class="keyword">void</span>*b))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;len<span class="number">-1</span>-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( compare(arr+j*<span class="built_in">size</span>,arr+(j+<span class="number">1</span>)*<span class="built_in">size</span>) &gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//printf(&quot;%d,%d  &quot;,*(int *)(arr+j*size),*(int *)(arr+(j+1)*size));</span></span><br><span class="line">                swap(arr+j*<span class="built_in">size</span>,arr+(j+<span class="number">1</span>)*<span class="built_in">size</span>,<span class="built_in">size</span>);</span><br><span class="line">                <span class="comment">//printf(&quot;%d,%d\n&quot;,*(int *)(arr+j*size),*(int *)(arr+(j+1)*size));</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+使用方式：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * \brief 比较函数，网上很多是减法比较，但当参数是无符号时就完蛋了。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *a,<span class="keyword">const</span> <span class="keyword">void</span> *b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( (*(<span class="keyword">int</span> *)a) &gt; (*(<span class="keyword">int</span> *)b) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">9</span>] = &#123;<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    BubbleSort(a,<span class="number">9</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>),cmp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>Paste Image: Default Name 填写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_</span><br></pre></td></tr></table></figure>
-<p>Paste Image: Base Path 填写</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;projectRoot&#125;</span><span class="regexp">/source/</span>_posts</span><br></pre></td></tr></table></figure>
-<p>Paste Image: Path 填写</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;currentFileNameWithoutExt&#125;</span></span><br></pre></td></tr></table></figure>
-<p>Paste Image: Prefix 填空</p>
+<h2 id="2-2-快速排序"><a href="#2-2-快速排序" class="headerlink" title="2.2 快速排序"></a>2.2 快速排序</h2><p>如其名，就是提升速度，但是也牺牲了内存，实现方式是递归，实际内存消耗不固定是个弊端。</p>
 <ul>
-<li>之后图片格式就变为了，如此以来，才能在部署后被显示<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(vscode编辑MD图片粘贴插件/p_1.png)</span><br></pre></td></tr></table></figure></li>
+<li>下列实现直接使用库函数方式<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*!</span></span><br><span class="line"><span class="comment"> * \brief 快速排序，头文件:stdlib.h</span></span><br><span class="line"><span class="comment"> * \param [IN] base 数据首地址</span></span><br><span class="line"><span class="comment"> * \param [IN] nitems 数据个数</span></span><br><span class="line"><span class="comment"> * \param [IN] size 数据类型大小</span></span><br><span class="line"><span class="comment"> * \param [IN] compar 比较大小</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">void</span> *base, <span class="keyword">size_t</span> nitems, <span class="keyword">size_t</span> <span class="built_in">size</span>, <span class="keyword">int</span> (*compar)(<span class="keyword">const</span> <span class="keyword">void</span> *, <span class="keyword">const</span> <span class="keyword">void</span>*))</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从小到大排序示例</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>*a,<span class="keyword">const</span> <span class="keyword">void</span>*b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( (*(<span class="keyword">int</span> *)a) &gt; (*(<span class="keyword">int</span> *)b) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">9</span>] = &#123;<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    qsort(a,<span class="number">9</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>),cmp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="3-paste-image-中文说明"><a href="#3-paste-image-中文说明" class="headerlink" title="3. paste image 中文说明"></a>3. paste image 中文说明</h1><h3 id="3-1用法"><a href="#3-1用法" class="headerlink" title="3.1用法"></a>3.1用法</h3><ul>
-<li>剪切或复制图片</li>
-<li>对着你的文本直接Ctrl+Alt+V粘贴</li>
-<li>图像将保存在包含当前编辑文件的文件夹中</li>
-</ul>
-<h3 id="3-2-配置"><a href="#3-2-配置" class="headerlink" title="3.2 配置"></a>3.2 配置</h3><h4 id="3-2-1-图片名称"><a href="#3-2-1-图片名称" class="headerlink" title="3.2.1 图片名称"></a>3.2.1 图片名称</h4><ul>
-<li>${currentFileName}带有文件后缀的名称</li>
-<li>${currentFileNameWithoutExt}不带有后缀的名称</li>
-<li>Y-MM-DD-HH-mm-ss 时间显示</li>
-</ul>
-<h4 id="3-2-2-图片存放地址"><a href="#3-2-2-图片存放地址" class="headerlink" title="3.2.2 图片存放地址"></a>3.2.2 图片存放地址</h4><ul>
-<li>${currentFileDir} 文本目录地址</li>
-<li>${projectRoot} VSCODE打开的项目地址</li>
-<li>${currentFileName}</li>
-<li>${currentFileNameWithoutExt}</li>
-</ul>
-<h4 id="3-2-3-图片的基础路径"><a href="#3-2-3-图片的基础路径" class="headerlink" title="3.2.3 图片的基础路径"></a>3.2.3 图片的基础路径</h4><ul>
-<li>${currentFileDir}</li>
-<li>${projectRoot}</li>
-<li>${currentFileName}</li>
-<li>${currentFileNameWithoutExt}</li>
-</ul>
-<h4 id="3-2-4-粘贴前确认"><a href="#3-2-4-粘贴前确认" class="headerlink" title="3.2.4 粘贴前确认"></a>3.2.4 粘贴前确认</h4><ul>
-<li>pasteImage.showFilePathConfirmInputBox 打勾是需要不打是直接粘贴</li>
-</ul>
-<p>部分未翻译，可自行查看插件的介绍</p>
-<h4 id="3-3-使用示例"><a href="#3-3-使用示例" class="headerlink" title="3.3 使用示例"></a>3.3 使用示例</h4><p>如果使用VScode编辑hexo博客，则目录结构如下</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blog<span class="regexp">/source/</span>_posts  (articles)</span><br><span class="line">blog<span class="regexp">/source/img</span>     (images)</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-哈希排序"><a href="#3-3-哈希排序" class="headerlink" title="3.3 哈希排序"></a>3.3 哈希排序</h2><p>利用哈希表来进行排序，将数据依次填入数组中，则依据数组下标达到排序的目的。优点在于耗时短，使用空间固定，缺点是得知道输入数据的范围。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HASH_SIZE 4096</span></span><br><span class="line"><span class="keyword">static</span> u8 hash[HASH_SIZE] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">leakSort</span><span class="params">(u16 *data,u16 <span class="built_in">size</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(hash, <span class="number">0</span>, (HASH_SIZE) * <span class="keyword">sizeof</span>(hash[<span class="number">0</span>]));</span><br><span class="line">    <span class="comment">//填充hash表</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i++) hash[data[i]]++;</span><br><span class="line">    <span class="comment">//按照顺序读出</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>,j=<span class="number">0</span>; i &lt; (HASH_SIZE); i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash[i] &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash[i] != <span class="number">0</span>) </span><br><span class="line">            &#123;</span><br><span class="line">                data[j++] = i;</span><br><span class="line">                hash[i]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-实用示例"><a href="#3-实用示例" class="headerlink" title="3. 实用示例"></a>3. 实用示例</h1><p>在进行中位值滤波的时候，我准备将整个数据先进行排序，然后去掉前百分之二十和后百分之二十，得到中间数据。<br>于是首先选择了冒泡排序，但是很明显的发现排序耗时严重，数据来源于ADC采集，每采集10ms进行一次数据处理，然后开始下一次采集。仿真测试10ms输入数据为350左右，排序耗时20ms，这肯定不能忍了，得换。<br>之后立马想到了快速排序，然后。。。程序崩了，原因是栈炸了，快速排序是递归，消耗的栈空间。一开始还没检测出来，原因在于消耗是和数据的值有关，动态的- -|。<br>最后选择了哈希表计数排序，一开始就给分配固定空间，虽然消耗挺大的，但是尽在掌握，稳定啊！测试实际耗时变为了2ms。能够接受了。<br>上列的数据仅仅是参考。。和片子速度有关哈。</p>
 
-<p>如果你想要保存图片在blog/source/img中，博客的根目录作为工程打开目录，则可以如下配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/img&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.forceUnixStyleSeparator&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.prefix&quot;</span>: <span class="string">&quot;/&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你想要将图片分开保存则可以如下配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/img/<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.forceUnixStyleSeparator&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.prefix&quot;</span>: <span class="string">&quot;/&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你想要将文章名称作为前缀</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;pasteImage.namePrefix&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;currentFileNameWithoutExt&#125;</span>_&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/img&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.forceUnixStyleSeparator&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.prefix&quot;</span>: <span class="string">&quot;/&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你想要在md中html</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;pasteImage.insertPattern&quot;</span>: <span class="string">&quot;&lt;img&gt;<span class="variable">$&#123;imageFileName&#125;</span>&lt;/img&gt;&quot;</span></span><br><span class="line"><span class="string">&quot;pasteImage.path&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source/img&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.basePath&quot;</span>: <span class="string">&quot;<span class="variable">$&#123;projectRoot&#125;</span>/source&quot;</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.forceUnixStyleSeparator&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">&quot;pasteImage.prefix&quot;</span>: <span class="string">&quot;/&quot;</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -323,7 +294,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -379,7 +354,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/2021/03/15/vscode%E7%BC%96%E8%BE%91MD%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4%E6%8F%92%E4%BB%B6/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://example.com/posts/6162cde0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -393,18 +368,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021/03/15/hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/d7c953b6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo的搭建和部署
+          STM32cubemx的使用
         
       </div>
     </a>
   
   
-    <a href="/2021/03/15/docker%E4%B8%8Ehexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">docker与hexo</div>
+    <a href="/posts/586509d0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GCC编译流程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -431,7 +406,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. 配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-paste-image-%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">3. paste image 中文说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E7%94%A8%E6%B3%95"><span class="toc-number">3.0.1.</span> <span class="toc-text">3.1用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%85%8D%E7%BD%AE"><span class="toc-number">3.0.2.</span> <span class="toc-text">3.2 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E5%9B%BE%E7%89%87%E5%90%8D%E7%A7%B0"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">3.2.1 图片名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%9B%BE%E7%89%87%E5%AD%98%E6%94%BE%E5%9C%B0%E5%9D%80"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">3.2.2 图片存放地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E5%9B%BE%E7%89%87%E7%9A%84%E5%9F%BA%E7%A1%80%E8%B7%AF%E5%BE%84"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">3.2.3 图片的基础路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-%E7%B2%98%E8%B4%B4%E5%89%8D%E7%A1%AE%E8%AE%A4"><span class="toc-number">3.0.2.4.</span> <span class="toc-text">3.2.4 粘贴前确认</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.0.2.5.</span> <span class="toc-text">3.3 使用示例</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%93%88%E5%B8%8C%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 哈希排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AE%9E%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 实用示例</span></a></li></ol>
                     </div>
                 </span>
             </div>
