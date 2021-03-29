@@ -1,9 +1,10 @@
 ---
 title: STM32cubemx的使用
-date: 2021-03-22 16:00:50
 tags:
-    - STM32
-    - 工具
+  - STM32
+  - 工具
+abbrlink: d7c953b6
+date: 2021-03-22 16:00:50
 ---
 
 # 1. 前言

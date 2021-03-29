@@ -1,9 +1,10 @@
 ---
 title: vscode使用Astyle排版
-date: 2021-03-27 16:03:33
 tags:
-    - vscode
-    - 工具
+  - vscode
+  - 工具
+abbrlink: 3b3968c4
+date: 2021-03-27 16:03:33
 ---
 
 # 1. 前言

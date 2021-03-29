@@ -1,8 +1,9 @@
 ---
 title: hexo的搭建和部署
-date: 2021-03-15 17:09:14
 tags:
-    - hexo
+  - hexo
+abbrlink: 1733e8d1
+date: 2021-03-15 17:09:14
 ---
 
 # 1. 前言

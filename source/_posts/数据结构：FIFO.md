@@ -1,8 +1,9 @@
 ---
 title: 数据结构：FIFO
-date: 2021-03-26 14:02:03
 tags:
-    - 数据结构
+  - 数据结构
+abbrlink: abb6b1e2
+date: 2021-03-26 14:02:03
 ---
 # 1. 前言
 First Input First Output，先进先出队列，本文主要记录此结构的C实现，以下是一个循环队列，且当数据填满后，将抛弃旧数据存入新数据。直接用就请进入[此仓库](https://github.com/lissettecarlr/Embedded-tool-function)，在buffer/fifo文件夹下

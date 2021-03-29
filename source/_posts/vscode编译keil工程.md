@@ -1,8 +1,9 @@
 ---
 title: vscode编译keil工程
-date: 2021-03-25 12:57:34
 tags:
-    - vscode
+  - vscode
+abbrlink: 97ca9798
+date: 2021-03-25 12:57:34
 ---
 
 # 1. 前言

@@ -1,8 +1,9 @@
 ---
 title: vscode下的C编译
-date: 2021-03-17 12:33:32
 tags:
-    - vscode
+  - vscode
+abbrlink: 6432cd5a
+date: 2021-03-17 12:33:32
 ---
 
 # 1. 前言
