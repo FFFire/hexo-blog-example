@@ -395,10 +395,10 @@ service nginx restart
 * 以下是在本地弄了个脚本图方便
 ```
 cd ..
-hexo g
-hexo d
-hexo clean
 git add -A
-git commit -a -m "add"
+git commit -a -m "fix"
 git push origin blog
+```
+```
+hexo g & hexo d & hexo clean
 ```
