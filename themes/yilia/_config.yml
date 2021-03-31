@@ -39,7 +39,7 @@ mathjax: false
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
-reward_type: 2
+reward_type: 0
 reward_wording: '哼！就算讨好我也没有什么好处哦[狗头]'
 # alipay: /img/alipay.jpg
 weixin: /img/weixin.jpg
@@ -67,10 +67,10 @@ favicon: /img/kala.jpg
 avatar:  /img/kala.jpg
 
 #是否开启分享
-share_jia: true
+share_jia: false
 
 mobile:
-  social: true
+  social: false
 
 #评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus 不需要使用某项，直接设置值为false，或注释掉
 #请参考wiki：
