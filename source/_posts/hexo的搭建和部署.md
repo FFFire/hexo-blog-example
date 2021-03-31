@@ -363,3 +363,42 @@ root /home/ubuntu/lissettecarlr.github.io/;
 ```
 service nginx restart
 ```
+
+# 3.3 我目前使用的方式
+由于github的网页国内访问实在太卡，所以就想着用CDN，但是这必须要备案了个网站，于是就去腾讯云买了个国内特别便宜的vps，但既然都买了个vps，就干脆直接部署到上面得了，gihub就当个备份。
+在测试了新的vps后发现，对接GitHub实在是非常卡，基本不能用，不得不用gitee来存储部署文件，一开始我是用gitee上的克隆功能直接复制github仓库的，但是每次都得登录它的页面去点同步，太麻烦了，就干脆将hexo deploy的地址绑上去。github仍然保存源码，然后利用actions功能自动生成部署文件。
+
+* 注意git的权限问题，ssh密匙对应的是当前用户，如果你使用sudo来运行git，则需要给root也添加个密匙。
+
+* 以下是vps的脚本，就是去拉取gitee的部署文件，然后更新本地的部署文件，执行使用sudo bash
+```
+#!/bin/bash
+file="/var/www/hexo"
+
+echo "-------------start-----------------"
+echo "start git pull"
+cd ~/giteeBlog/blog
+git pull
+echo "start cp"
+if [ ! -d "$file" ]; then
+        echo "创建文件夹"
+        mkdir /var/www/hexo
+else
+        echo "已存在-删除后创建"
+        rm -r /var/www/hexo
+        mkdir /var/www/hexo
+fi
+cp -r ~/giteeBlog/blog/* /var/www/hexo
+echo "copy over"
+service nginx restart
+```
+* 以下是在本地弄了个脚本图方便
+```
+cd ..
+hexo g
+hexo d
+hexo clean
+git add -A
+git commit -a -m "add"
+git push origin blog
+```

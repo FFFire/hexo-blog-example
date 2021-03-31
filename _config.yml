@@ -100,7 +100,8 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
  type: git
- repository: git@github.com:lissettecarlr/lissettecarlr.github.io.git
+ # repository: git@github.com:lissettecarlr/lissettecarlr.github.io.git
+ repository: git@gitee.com:lissettecarlr/blog.git
  branch: master
 
 # deploy:
@@ -153,7 +154,7 @@ live2d:
     use: live2d-widget-model-unitychan # 模型：https://huaji8.top/post/live2d-plugin-2.0/
   display:
     position: left
-    width: 300
+    width: 400
     height: 500
   mobile:
     show: true
